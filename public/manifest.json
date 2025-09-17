@@ -1,0 +1,29 @@
+{
+  "short_name": "Ahmed Asaad",
+  "name": "Ahmed Asaad - Flutter Developer Portfolio",
+  "description": "Professional Flutter Developer Portfolio showcasing mobile app development expertise",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/images/profile/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/images/profile/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#FF1744",
+  "background_color": "#0A0A0A",
+  "categories": ["technology", "developer", "portfolio"],
+  "lang": "en",
+  "scope": "/"
+}
