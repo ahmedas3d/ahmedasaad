@@ -7,7 +7,6 @@ import {
   FaEnvelope,
   FaPhone,
   FaWhatsapp,
-  FaHeart,
   FaCode,
 } from "react-icons/fa";
 import { personalInfo, socialLinks } from "../../data/personal";

@@ -1,47 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './hooks/useTheme';
-import LoadingScreen from './components/ui/LoadingScreen';
+import SimpleLoadingScreen from './components/ui/SimpleLoadingScreen';
+import ErrorBoundary from './components/ui/ErrorBoundary';
 import Layout from './components/layout/Layout';
-import Home from './pages/Home';
-import ProjectDetail from './pages/ProjectDetail';
-import Resume from './pages/Resume';
-import { preloadCriticalAssets, measureLoadingPerformance } from './utils/assetPreloader';
+
+// Lazy load pages for better performance
+const Home = lazy(() => import('./pages/Home'));
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
+const Resume = lazy(() => import('./pages/Resume'));
+
+// Loading fallback component
+const PageLoader = () => (
+  <div className="flex justify-center items-center h-screen bg-black">
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500" />
+  </div>
+);
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [assetsPreloaded, setAssetsPreloaded] = useState(false);
-
-  useEffect(() => {
-    const performanceMeasure = measureLoadingPerformance();
-
-    // Start preloading critical assets immediately
-    preloadCriticalAssets()
-      .then(() => {
-        setAssetsPreloaded(true);
-        performanceMeasure.finish();
-      })
-      .catch(() => {
-        // Even if preloading fails, don't block the app
-        setAssetsPreloaded(true);
-        performanceMeasure.finish();
-      });
-  }, []);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
+
+    // Preload critical assets after loading completes
+    const preloadLink = document.createElement('link');
+    preloadLink.rel = 'preload';
+    preloadLink.href = '/assets/images/profile/ahmed-profile-main.jpg';
+    preloadLink.as = 'image';
+    document.head.appendChild(preloadLink);
   };
 
+  if (isLoading) {
+    return <SimpleLoadingScreen onLoadingComplete={handleLoadingComplete} />;
+  }
+
   return (
-    <ThemeProvider>
-      <div className="App relative min-h-screen">
-        <AnimatePresence mode="wait">
-          {isLoading ? (
-            <LoadingScreen key="loading" onComplete={handleLoadingComplete} />
-          ) : (
-            <Router key="app">
-              <Layout>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <div className="App relative min-h-screen">
+          <Router>
+            <Layout>
+              <Suspense fallback={<PageLoader />}>
                 <AnimatePresence mode="wait">
                   <Routes>
                     <Route path="/" element={<Home />} />
@@ -50,17 +51,17 @@ const App: React.FC = () => {
                     <Route path="*" element={<Home />} />
                   </Routes>
                 </AnimatePresence>
-              </Layout>
-            </Router>
-          )}
-        </AnimatePresence>
+              </Suspense>
+            </Layout>
+          </Router>
 
-        {/* Background Tech Pattern */}
-        <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute inset-0 bg-tech-pattern opacity-5"></div>
+          {/* Background Tech Pattern */}
+          <div className="fixed inset-0 pointer-events-none z-0">
+            <div className="absolute inset-0 bg-tech-pattern opacity-5"></div>
+          </div>
         </div>
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
   );
 };
 

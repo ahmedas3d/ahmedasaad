@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { skillCategories, getTopSkills } from '../../data/skills';
 import { FaMobile, FaServer, FaCode, FaPalette, FaTools, FaProjectDiagram } from 'react-icons/fa';
-import { ASSETS, getTechIcon } from '../../data/assets';
+import TechIcons from '../ui/TechIcons';
 
 const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('mobile');
@@ -64,6 +64,20 @@ const Skills: React.FC = () => {
               <div className="w-2 h-4 bg-tech-green animate-pulse ml-1"></div>
             </div>
           </motion.div>
+        </motion.div>
+
+        {/* Tech Icons Section */}
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-2xl font-header font-semibold text-light-text dark:text-dark-text mb-8 text-center">
+            Technologies & Tools
+          </h3>
+          <TechIcons />
         </motion.div>
 
         {/* Top Skills Overview */}

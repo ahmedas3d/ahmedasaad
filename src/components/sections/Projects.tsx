@@ -202,99 +202,99 @@ const Projects: React.FC = () => {
                       </span>
                     </div>
                   </div>
-                </div>
 
-                {/* Project Content */}
-                <div className="p-6">
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h3 className="text-xl font-header font-bold text-light-text dark:text-dark-text mb-1">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm font-code text-primary-red">
-                        {project.subtitle}
-                      </p>
+                  {/* Project Content */}
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-3">
+                      <div>
+                        <h3 className="text-xl font-header font-bold text-light-text dark:text-dark-text mb-1">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm font-code text-primary-red">
+                          {project.subtitle}
+                        </p>
+                      </div>
+                      <div className="text-right text-xs font-code text-light-text-muted dark:text-dark-text-muted">
+                        <div>{project.year}</div>
+                        <div>{project.duration}</div>
+                      </div>
                     </div>
-                    <div className="text-right text-xs font-code text-light-text-muted dark:text-dark-text-muted">
-                      <div>{project.year}</div>
-                      <div>{project.duration}</div>
+
+                    <p className="text-light-text-secondary dark:text-dark-text-secondary mb-4 line-clamp-3">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-2">
+                        {project.primaryTech.map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className="px-2 py-1 bg-light-bg-tertiary dark:bg-dark-bg-tertiary text-xs font-code rounded-md text-light-text-secondary dark:text-dark-text-secondary"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length >
+                          project.primaryTech.length && (
+                          <span className="px-2 py-1 bg-primary-red text-white text-xs font-code rounded-md">
+                            +
+                            {project.technologies.length -
+                              project.primaryTech.length}{" "}
+                            more
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
 
-                  <p className="text-light-text-secondary dark:text-dark-text-secondary mb-4 line-clamp-3">
-                    {project.description}
-                  </p>
+                    {/* Project Stats */}
+                    <div className="flex justify-between items-center text-xs font-code text-light-text-muted dark:text-dark-text-muted mb-4">
+                      <span>
+                        Team: {project.teamSize} member
+                        {project.teamSize > 1 ? "s" : ""}
+                      </span>
+                      <span>Role: {project.myRole}</span>
+                    </div>
 
-                  {/* Tech Stack */}
-                  <div className="mb-4">
-                    <div className="flex flex-wrap gap-2">
-                      {project.primaryTech.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-2 py-1 bg-light-bg-tertiary dark:bg-dark-bg-tertiary text-xs font-code rounded-md text-light-text-secondary dark:text-dark-text-secondary"
+                    {/* Key Features */}
+                    <div className="mb-4">
+                      <h4 className="text-sm font-code font-semibold text-light-text dark:text-dark-text mb-2">
+                        Key Features:
+                      </h4>
+                      <ul className="text-xs text-light-text-secondary dark:text-dark-text-secondary space-y-1">
+                        {project.features
+                          .slice(0, 3)
+                          .map((feature, featureIndex) => (
+                            <li
+                              key={featureIndex}
+                              className="flex items-start space-x-2"
+                            >
+                              <span className="text-primary-red mt-1">•</span>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex space-x-2">
+                      <Link
+                        to={`/project/${project.id}`}
+                        className="flex-1 btn-primary text-center text-sm py-2"
+                      >
+                        <span className="font-code">View Details</span>
+                      </Link>
+                      {project.links.github && (
+                        <a
+                          href={project.links.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 border border-primary-red text-primary-red rounded-lg hover:bg-primary-red hover:text-white transition-all duration-300 flex items-center justify-center"
                         >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.technologies.length >
-                        project.primaryTech.length && (
-                        <span className="px-2 py-1 bg-primary-red text-white text-xs font-code rounded-md">
-                          +
-                          {project.technologies.length -
-                            project.primaryTech.length}{" "}
-                          more
-                        </span>
+                          <FaGithub />
+                        </a>
                       )}
                     </div>
-                  </div>
-
-                  {/* Project Stats */}
-                  <div className="flex justify-between items-center text-xs font-code text-light-text-muted dark:text-dark-text-muted mb-4">
-                    <span>
-                      Team: {project.teamSize} member
-                      {project.teamSize > 1 ? "s" : ""}
-                    </span>
-                    <span>Role: {project.myRole}</span>
-                  </div>
-
-                  {/* Key Features */}
-                  <div className="mb-4">
-                    <h4 className="text-sm font-code font-semibold text-light-text dark:text-dark-text mb-2">
-                      Key Features:
-                    </h4>
-                    <ul className="text-xs text-light-text-secondary dark:text-dark-text-secondary space-y-1">
-                      {project.features
-                        .slice(0, 3)
-                        .map((feature, featureIndex) => (
-                          <li
-                            key={featureIndex}
-                            className="flex items-start space-x-2"
-                          >
-                            <span className="text-primary-red mt-1">•</span>
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex space-x-2">
-                    <Link
-                      to={`/project/${project.id}`}
-                      className="flex-1 btn-primary text-center text-sm py-2"
-                    >
-                      <span className="font-code">View Details</span>
-                    </Link>
-                    {project.links.github && (
-                      <a
-                        href={project.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-4 py-2 border border-primary-red text-primary-red rounded-lg hover:bg-primary-red hover:text-white transition-all duration-300 flex items-center justify-center"
-                      >
-                        <FaGithub />
-                      </a>
-                    )}
                   </div>
                 </div>
               </motion.div>

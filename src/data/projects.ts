@@ -1,4 +1,4 @@
-import { ASSETS, getProjectPlaceholder } from "./assets";
+// Removed unused imports - ASSETS and getProjectPlaceholder not currently used
 
 export interface Project {
   id: string;
