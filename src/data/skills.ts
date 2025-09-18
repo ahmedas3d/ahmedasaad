@@ -351,13 +351,6 @@ export const skillCategories: SkillCategory[] = [
     skills: getSkillsByCategory('backend')
   },
   {
-    name: 'Frontend & Web',
-    icon: 'FaCode',
-    color: '#61DAFB',
-    description: 'Frontend development and web technologies',
-    skills: getSkillsByCategory('frontend')
-  },
-  {
     name: 'UI/UX Design',
     icon: 'FaPalette',
     color: '#F24E1E',

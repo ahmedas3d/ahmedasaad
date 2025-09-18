@@ -1,7 +1,16 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaPhone, FaWhatsapp, FaHeart, FaCode } from 'react-icons/fa';
-import { personalInfo, socialLinks } from '../../data/personal';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaEnvelope,
+  FaPhone,
+  FaWhatsapp,
+  FaHeart,
+  FaCode,
+} from "react-icons/fa";
+import { personalInfo, socialLinks } from "../../data/personal";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -13,7 +22,7 @@ const Footer: React.FC = () => {
       FaTwitter: <FaTwitter className="w-5 h-5" />,
       FaEnvelope: <FaEnvelope className="w-5 h-5" />,
       FaPhone: <FaPhone className="w-5 h-5" />,
-      FaWhatsapp: <FaWhatsapp className="w-5 h-5" />
+      FaWhatsapp: <FaWhatsapp className="w-5 h-5" />,
     };
     return icons[iconName] || <FaCode className="w-5 h-5" />;
   };
@@ -26,20 +35,25 @@ const Footer: React.FC = () => {
 
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
 
   const quickLinks = [
-    { name: 'About', section: 'about' },
-    { name: 'Skills', section: 'skills' },
-    { name: 'Projects', section: 'projects' },
-    { name: 'Contact', section: 'contact' }
+    { name: "About", section: "about" },
+    { name: "Skills", section: "skills" },
+    { name: "Projects", section: "projects" },
+    { name: "Contact", section: "contact" },
   ];
 
   const techStack = [
-    'Flutter', 'Dart', 'Firebase', 'React', 'TypeScript', 'Clean Architecture'
+    "Flutter",
+    "Dart",
+    "Firebase",
+    "React",
+    "TypeScript",
+    "Clean Architecture",
   ];
 
   return (
@@ -51,7 +65,6 @@ const Footer: React.FC = () => {
         <div className="section-padding">
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-
             {/* Brand Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -66,8 +79,10 @@ const Footer: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-header font-bold text-light-text dark:text-dark-text">
-                    {personalInfo.name.split(' ')[0]}
-                    <span className="text-gradient">{personalInfo.name.split(' ')[1]}</span>
+                    {personalInfo.name.split(" ")[0]}
+                    <span className="text-gradient">
+                      {personalInfo.name.split(" ")[1]}
+                    </span>
                   </h3>
                   <p className="text-sm font-code text-light-text-muted dark:text-dark-text-muted">
                     {personalInfo.title}
@@ -93,7 +108,10 @@ const Footer: React.FC = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 23, 68, 0.1)' }}
+                      whileHover={{
+                        scale: 1.05,
+                        backgroundColor: "rgba(255, 23, 68, 0.1)",
+                      }}
                     >
                       {tech}
                     </motion.span>
@@ -167,7 +185,9 @@ const Footer: React.FC = () => {
                 <div className="flex items-start space-x-3">
                   <FaEnvelope className="w-4 h-4 text-primary-red mt-1 flex-shrink-0" />
                   <div>
-                    <p className="text-xs font-code text-light-text-muted dark:text-dark-text-muted">Email</p>
+                    <p className="text-xs font-code text-light-text-muted dark:text-dark-text-muted">
+                      Email
+                    </p>
                     <a
                       href={`mailto:${personalInfo.email}`}
                       className="text-light-text-secondary dark:text-dark-text-secondary hover:text-primary-red transition-colors duration-300 text-sm break-all"
@@ -180,7 +200,9 @@ const Footer: React.FC = () => {
                 <div className="flex items-start space-x-3">
                   <FaPhone className="w-4 h-4 text-primary-red mt-1 flex-shrink-0" />
                   <div>
-                    <p className="text-xs font-code text-light-text-muted dark:text-dark-text-muted">Phone</p>
+                    <p className="text-xs font-code text-light-text-muted dark:text-dark-text-muted">
+                      Phone
+                    </p>
                     <a
                       href={`tel:${personalInfo.phone}`}
                       className="text-light-text-secondary dark:text-dark-text-secondary hover:text-primary-red transition-colors duration-300 text-sm"
@@ -193,7 +215,9 @@ const Footer: React.FC = () => {
                 <div className="flex items-start space-x-3">
                   <div className="w-4 h-4 bg-primary-red rounded-full mt-1 flex-shrink-0"></div>
                   <div>
-                    <p className="text-xs font-code text-light-text-muted dark:text-dark-text-muted">Location</p>
+                    <p className="text-xs font-code text-light-text-muted dark:text-dark-text-muted">
+                      Location
+                    </p>
                     <p className="text-light-text-secondary dark:text-dark-text-secondary text-sm">
                       {personalInfo.location}
                     </p>
@@ -202,7 +226,7 @@ const Footer: React.FC = () => {
 
                 <div className="pt-4">
                   <button
-                    onClick={() => scrollToSection('contact')}
+                    onClick={() => scrollToSection("contact")}
                     className="btn-secondary text-sm w-full"
                   >
                     <span className="font-code">Get In Touch</span>
@@ -222,10 +246,9 @@ const Footer: React.FC = () => {
           >
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="flex items-center space-x-2 text-light-text-muted dark:text-dark-text-muted text-sm">
-                <span>© {currentYear} {personalInfo.name}.</span>
-                <span>Built with</span>
-                <FaHeart className="text-primary-red w-4 h-4 animate-pulse" />
-                <span>using React + TypeScript</span>
+                <span>
+                  © {currentYear} {personalInfo.name}.
+                </span>
               </div>
 
               <div className="flex items-center space-x-4 text-sm">
@@ -234,7 +257,9 @@ const Footer: React.FC = () => {
                 </span>
                 <div className="flex items-center space-x-1">
                   <div className="w-2 h-2 bg-tech-green rounded-full animate-pulse"></div>
-                  <span className="text-tech-green text-xs font-code">Online</span>
+                  <span className="text-tech-green text-xs font-code">
+                    Online
+                  </span>
                 </div>
               </div>
             </div>

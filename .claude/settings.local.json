@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git reset:*)",
+      "Bash(git checkout:*)",
+      "Bash(npm cache clean:*)",
+      "Bash(npm install)",
+      "Bash(npm start)",
+      "Bash(npx react-scripts:*)",
+      "Bash(npm install:*)",
+      "Bash(yarn install)",
+      "Bash(npx create-react-app:*)",
+      "Bash(python:*)",
+      "Bash(curl:*)",
+      "Bash(cat:*)",
+      "Bash(npx serve:*)",
+      "Bash(test:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(npm run build:*)",
+      "Bash(npx http-server:*)",
+      "Bash(npx vite:*)",
+      "Bash(npx:*)",
+      "Bash(node:*)",
+      "Bash(set PORT=3001)",
+      "Bash($env:PORT = 3001)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(cross-env:*)",
+      "Bash(PORT=3002 npm start)",
+      "Bash(move Projects.tsx Projects_backup.tsx)",
+      "Bash(move Projects_fixed.tsx Projects.tsx)",
+      "Bash(ren:*)",
+      "Bash(PORT=3005 npm start)",
+      "Bash(if exist build rd /s /q build)",
+      "Bash(/bashes)",
+      "Bash(GENERATE_SOURCEMAP=false npm run build)",
+      "Bash(BUILD_PATH=dist npm run build)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

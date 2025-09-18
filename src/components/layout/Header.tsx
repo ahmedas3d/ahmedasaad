@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../../hooks/useTheme';
-import { FaCode, FaMoon, FaSun, FaBars, FaTimes, FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa';
-import { personalInfo } from '../../data/personal';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "../../hooks/useTheme";
+import {
+  FaCode,
+  FaMoon,
+  FaSun,
+  FaBars,
+  FaTimes,
+  FaGithub,
+  FaLinkedin,
+  FaDownload,
+} from "react-icons/fa";
+import { personalInfo } from "../../data/personal";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,11 +21,11 @@ const Header: React.FC = () => {
   const { toggleTheme, isDark } = useTheme();
 
   const navItems = [
-    { name: 'Home', path: '/', section: 'hero' },
-    { name: 'About', path: '/', section: 'about' },
-    { name: 'Skills', path: '/', section: 'skills' },
-    { name: 'Projects', path: '/', section: 'projects' },
-    { name: 'Contact', path: '/', section: 'contact' }
+    { name: "Home", path: "/", section: "hero" },
+    { name: "About", path: "/", section: "about" },
+    { name: "Skills", path: "/", section: "skills" },
+    { name: "Projects", path: "/", section: "projects" },
+    { name: "Contact", path: "/", section: "contact" },
   ];
 
   useEffect(() => {
@@ -24,8 +33,8 @@ const Header: React.FC = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -33,7 +42,7 @@ const Header: React.FC = () => {
   }, [location]);
 
   const scrollToSection = (sectionId: string) => {
-    if (location.pathname !== '/') {
+    if (location.pathname !== "/") {
       window.location.href = `/#${sectionId}`;
       return;
     }
@@ -45,14 +54,14 @@ const Header: React.FC = () => {
 
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
     setIsMobileMenuOpen(false);
   };
 
-  const handleNavClick = (item: typeof navItems[0]) => {
-    if (item.path === '/' && item.section) {
+  const handleNavClick = (item: (typeof navItems)[0]) => {
+    if (item.path === "/" && item.section) {
       scrollToSection(item.section);
     }
   };
@@ -62,8 +71,8 @@ const Header: React.FC = () => {
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-light-bg/95 dark:bg-dark-bg/95 backdrop-glass shadow-lg border-b border-light-border dark:border-dark-border'
-            : 'bg-transparent'
+            ? "bg-light-bg/95 dark:bg-dark-bg/95 backdrop-glass shadow-lg border-b border-light-border dark:border-dark-border"
+            : "bg-transparent"
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -77,7 +86,11 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Link to="/" onClick={() => scrollToSection('hero')} className="flex items-center space-x-3 group">
+              <Link
+                to="/"
+                onClick={() => scrollToSection("hero")}
+                className="flex items-center space-x-3 group"
+              >
                 <div className="relative">
                   <div className="w-12 h-12 bg-gradient-to-br from-primary-red to-tech-blue rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-glow transition-all duration-300">
                     <FaCode className="text-white text-xl" />
@@ -86,8 +99,10 @@ const Header: React.FC = () => {
                 </div>
                 <div className="hidden sm:block">
                   <h1 className="text-xl font-header font-bold text-light-text dark:text-dark-text">
-                    {personalInfo.name.split(' ')[0]}
-                    <span className="text-gradient">{personalInfo.name.split(' ')[1]}</span>
+                    {personalInfo.name.split(" ")[0]}
+                    <span className="text-gradient">
+                      {personalInfo.name.split(" ")[1]}
+                    </span>
                   </h1>
                   <p className="text-xs font-code text-light-text-muted dark:text-dark-text-muted">
                     {personalInfo.title}
@@ -120,7 +135,7 @@ const Header: React.FC = () => {
             <div className="hidden lg:flex items-center space-x-4">
               {/* Social Links */}
               <motion.a
-                href="https://github.com/ahmedasaad"
+                href="https://github.com/ahmedas3d"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 text-light-text-muted dark:text-dark-text-muted hover:text-primary-red transition-colors duration-300"
@@ -134,7 +149,7 @@ const Header: React.FC = () => {
               </motion.a>
 
               <motion.a
-                href="https://linkedin.com/in/ahmed-asaad"
+                href="https://www.linkedin.com/in/ahmed-asaad-1960812a0/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 text-light-text-muted dark:text-dark-text-muted hover:text-primary-red transition-colors duration-300"
@@ -156,7 +171,7 @@ const Header: React.FC = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+                title={`Switch to ${isDark ? "light" : "dark"} mode`}
               >
                 <AnimatePresence mode="wait">
                   {isDark ? (
@@ -185,7 +200,7 @@ const Header: React.FC = () => {
 
               {/* Resume Download */}
               <motion.button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection("contact")}
                 className="btn-primary flex items-center space-x-2"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -291,7 +306,7 @@ const Header: React.FC = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4">
                       <a
-                        href="https://github.com/ahmedasaad"
+                        href="https://github.com/ahmedas3d"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 text-light-text-muted dark:text-dark-text-muted hover:text-primary-red transition-colors duration-300"
@@ -299,7 +314,7 @@ const Header: React.FC = () => {
                         <FaGithub className="w-6 h-6" />
                       </a>
                       <a
-                        href="https://linkedin.com/in/ahmed-asaad"
+                        href="https://www.linkedin.com/in/ahmed-asaad-1960812a0/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 text-light-text-muted dark:text-dark-text-muted hover:text-primary-red transition-colors duration-300"
@@ -308,7 +323,7 @@ const Header: React.FC = () => {
                       </a>
                     </div>
                     <button
-                      onClick={() => scrollToSection('contact')}
+                      onClick={() => scrollToSection("contact")}
                       className="btn-primary flex items-center space-x-2"
                     >
                       <span className="font-code">Hire Me</span>

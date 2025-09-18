@@ -133,57 +133,58 @@ const Projects: React.FC = () => {
                       className="w-full h-64"
                     />
 
-                      {/* Overlay */}
-                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
-                        <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 flex space-x-4">
-                          <Link
-                            to={`/project/${project.id}`}
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 flex space-x-4">
+                        <Link
+                          to={`/project/${project.id}`}
+                          className="w-12 h-12 bg-white text-primary-red rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-200"
+                        >
+                          <FaExternalLinkAlt />
+                        </Link>
+                        {project.links.github && (
+                          <a
+                            href={project.links.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="w-12 h-12 bg-white text-primary-red rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-200"
                           >
-                            <FaExternalLinkAlt />
-                          </Link>
-                          {project.links.github && (
-                            <a
-                              href={project.links.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-12 h-12 bg-white text-primary-red rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-200"
-                            >
-                              <FaGithub />
-                            </a>
-                          )}
-                          {project.links.demo && (
-                            <a
-                              href={project.links.demo}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-12 h-12 bg-white text-primary-red rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-200"
-                            >
-                              <FaPlay />
-                            </a>
-                          )}
-                        </div>
+                            <FaGithub />
+                          </a>
+                        )}
+                        {project.links.demo && (
+                          <a
+                            href={project.links.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-12 h-12 bg-white text-primary-red rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-200"
+                          >
+                            <FaPlay />
+                          </a>
+                        )}
                       </div>
+                    </div>
 
-                      {/* Status Badge */}
-                      <div className="absolute top-4 right-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-code ${
+                    {/* Status Badge */}
+                    <div className="absolute top-4 right-4">
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-code ${
                           project.status === 'completed'
                             ? 'bg-tech-green text-white'
                             : project.status === 'in-progress'
                             ? 'bg-yellow-500 text-white'
                             : 'bg-gray-500 text-white'
-                        }`}>
-                          {project.status.replace('-', ' ')}
-                        </span>
-                      </div>
+                        }`}
+                      >
+                        {project.status.replace('-', ' ')}
+                      </span>
+                    </div>
 
-                      {/* Category Badge */}
-                      <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-white text-primary-red rounded-full text-xs font-code font-medium">
-                          {project.category}
-                        </span>
-                      </div>
+                    {/* Category Badge */}
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 bg-white text-primary-red rounded-full text-xs font-code font-medium">
+                        {project.category}
+                      </span>
                     </div>
                   </div>
 

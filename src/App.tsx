@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './hooks/useTheme';
@@ -7,9 +7,27 @@ import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import ProjectDetail from './pages/ProjectDetail';
 import Resume from './pages/Resume';
+import { preloadCriticalAssets, measureLoadingPerformance } from './utils/assetPreloader';
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [assetsPreloaded, setAssetsPreloaded] = useState(false);
+
+  useEffect(() => {
+    const performanceMeasure = measureLoadingPerformance();
+
+    // Start preloading critical assets immediately
+    preloadCriticalAssets()
+      .then(() => {
+        setAssetsPreloaded(true);
+        performanceMeasure.finish();
+      })
+      .catch(() => {
+        // Even if preloading fails, don't block the app
+        setAssetsPreloaded(true);
+        performanceMeasure.finish();
+      });
+  }, []);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);

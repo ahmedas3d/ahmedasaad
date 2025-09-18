@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ahmed-asaad-portfolio.netlify.app/sitemap.xml
+
+# SEO optimized for Ahmed Asaad - Flutter Developer Portfolio
+# Allow all crawlers to index the portfolio content
