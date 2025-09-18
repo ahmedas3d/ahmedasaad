@@ -149,11 +149,7 @@ export const projectsData: Project[] = [
     },
     links: {
       github: "https://github.com/ahmedas3d/Spotify-v1",
-<<<<<<< HEAD
       demo: "",
-=======
-      demo: "https://sportify-demo.netlify.app",
->>>>>>> a46590524d878b8ed83c43eeb42b1a7bbe155c80
     },
     metrics: {
       users: "1000+",
@@ -240,11 +236,7 @@ export const projectsData: Project[] = [
     },
     links: {
       github: "",
-<<<<<<< HEAD
       demo: "",
-=======
-      demo: "https://home-food-demo.netlify.app",
->>>>>>> a46590524d878b8ed83c43eeb42b1a7bbe155c80
     },
     duration: "4 months",
     teamSize: 2,

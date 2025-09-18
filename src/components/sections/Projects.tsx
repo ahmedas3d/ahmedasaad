@@ -173,67 +173,6 @@ const Projects: React.FC = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-12 h-12 bg-white text-primary-red rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-200"
-<<<<<<< HEAD
-                          >
-                            <FaPlay />
-                          </a>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Status Badge */}
-                    <div className="absolute top-4 right-4">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-code ${
-                          project.status === 'completed'
-                            ? 'bg-tech-green text-white'
-                            : project.status === 'in-progress'
-                            ? 'bg-yellow-500 text-white'
-                            : 'bg-gray-500 text-white'
-                        }`}
-                      >
-                        {project.status.replace('-', ' ')}
-                      </span>
-                    </div>
-
-                    {/* Category Badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-white text-primary-red rounded-full text-xs font-code font-medium">
-                        {project.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Project Content */}
-                  <div className="p-6">
-                    <div className="flex items-start justify-between mb-3">
-                      <div>
-                        <h3 className="text-xl font-header font-bold text-light-text dark:text-dark-text mb-1">
-                          {project.title}
-                        </h3>
-                        <p className="text-sm font-code text-primary-red">
-                          {project.subtitle}
-                        </p>
-                      </div>
-                      <div className="text-right text-xs font-code text-light-text-muted dark:text-dark-text-muted">
-                        <div>{project.year}</div>
-                        <div>{project.duration}</div>
-                      </div>
-                    </div>
-
-                    <p className="text-light-text-secondary dark:text-dark-text-secondary mb-4 line-clamp-3">
-                      {project.description}
-                    </p>
-
-                    {/* Tech Stack */}
-                    <div className="mb-4">
-                      <div className="flex flex-wrap gap-2">
-                        {project.primaryTech.map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className="px-2 py-1 bg-light-bg-tertiary dark:bg-dark-bg-tertiary text-xs font-code rounded-md text-light-text-secondary dark:text-dark-text-secondary"
-=======
->>>>>>> a46590524d878b8ed83c43eeb42b1a7bbe155c80
                           >
                             <FaPlay />
                           </a>

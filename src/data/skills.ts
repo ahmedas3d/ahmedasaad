@@ -320,22 +320,6 @@ export const skillCategories: SkillCategory[] = [
     skills: getSkillsByCategory("design"),
   },
   {
-<<<<<<< HEAD
-    name: 'UI/UX Design',
-    icon: 'FaPalette',
-    color: '#F24E1E',
-    description: 'User interface and experience design',
-    skills: getSkillsByCategory('design')
-  },
-  {
-    name: 'Development Tools',
-    icon: 'FaTools',
-    color: '#F05032',
-    description: 'Development tools and environment setup',
-    skills: getSkillsByCategory('tools')
-  }
-];
-=======
     name: "Development Tools",
     icon: "FaTools",
     color: "#F05032",
@@ -343,4 +327,3 @@ export const skillCategories: SkillCategory[] = [
     skills: getSkillsByCategory("tools"),
   },
 ];
->>>>>>> a46590524d878b8ed83c43eeb42b1a7bbe155c80

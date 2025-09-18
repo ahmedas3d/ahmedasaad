@@ -92,11 +92,8 @@ export const socialLinks: SocialLink[] = [
     url: "https://github.com/ahmedas3d",
     icon: "FaGithub",
     color: "#333333",
-<<<<<<< HEAD
+
     username: "ahmedas3d",
-=======
-    username: "ahmedasaad",
->>>>>>> a46590524d878b8ed83c43eeb42b1a7bbe155c80
   },
   {
     name: "LinkedIn",
@@ -110,11 +107,7 @@ export const socialLinks: SocialLink[] = [
     url: "https://x.com/AhmedAsaad2002",
     icon: "FaTwitter",
     color: "#1DA1F2",
-<<<<<<< HEAD
     username: "AhmedAsaad2002",
-=======
-    username: "@ahmed_asaad_dev",
->>>>>>> a46590524d878b8ed83c43eeb42b1a7bbe155c80
   },
   {
     name: "Email",
