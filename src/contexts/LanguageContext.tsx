@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   LanguageCode,
   languages,
@@ -23,7 +22,6 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const { i18n } = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState<LanguageCode>(getCurrentLanguage());
   const [direction, setDirection] = useState<'ltr' | 'rtl'>(
     getLanguageDirection(getCurrentLanguage())
@@ -33,7 +31,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     // Set initial HTML attributes
     document.documentElement.lang = currentLanguage;
     document.documentElement.dir = direction;
-  }, []);
+  }, [currentLanguage, direction]);
 
   const handleChangeLanguage = async (lang: LanguageCode) => {
     try {

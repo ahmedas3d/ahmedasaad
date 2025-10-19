@@ -13,6 +13,7 @@ import {
   FaDownload,
 } from "react-icons/fa";
 import { personalInfo } from "../../data/personal";
+import LanguageSwitcher from "../ui/LanguageSwitcher";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -162,13 +163,22 @@ const Header: React.FC = () => {
                 <FaLinkedin className="w-5 h-5" />
               </motion.a>
 
+              {/* Language Switcher */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <LanguageSwitcher variant="icon" />
+              </motion.div>
+
               {/* Theme Toggle */}
               <motion.button
                 onClick={toggleTheme}
                 className="relative p-2 rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary border border-light-border dark:border-dark-border hover:border-primary-red transition-all duration-300"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.35 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 title={`Switch to ${isDark ? "light" : "dark"} mode`}
@@ -215,6 +225,9 @@ const Header: React.FC = () => {
 
             {/* Mobile Actions */}
             <div className="flex items-center space-x-3 lg:hidden">
+              {/* Language Switcher Mobile */}
+              <LanguageSwitcher variant="icon" />
+
               {/* Theme Toggle Mobile */}
               <motion.button
                 onClick={toggleTheme}
