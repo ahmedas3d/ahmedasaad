@@ -1,0 +1,267 @@
+/* RTL (Right-to-Left) Styles for Arabic Language */
+
+/* Apply RTL direction when body has rtl class */
+body.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Reset text alignment for LTR */
+body.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Flip margins and paddings for RTL */
+body.rtl .ml-2 { margin-right: 0.5rem; margin-left: 0; }
+body.rtl .mr-2 { margin-left: 0.5rem; margin-right: 0; }
+body.rtl .ml-4 { margin-right: 1rem; margin-left: 0; }
+body.rtl .mr-4 { margin-left: 1rem; margin-right: 0; }
+body.rtl .ml-6 { margin-right: 1.5rem; margin-left: 0; }
+body.rtl .mr-6 { margin-left: 1.5rem; margin-right: 0; }
+body.rtl .ml-8 { margin-right: 2rem; margin-left: 0; }
+body.rtl .mr-8 { margin-left: 2rem; margin-right: 0; }
+
+body.rtl .pl-2 { padding-right: 0.5rem; padding-left: 0; }
+body.rtl .pr-2 { padding-left: 0.5rem; padding-right: 0; }
+body.rtl .pl-4 { padding-right: 1rem; padding-left: 0; }
+body.rtl .pr-4 { padding-left: 1rem; padding-right: 0; }
+body.rtl .pl-6 { padding-right: 1.5rem; padding-left: 0; }
+body.rtl .pr-6 { padding-left: 1.5rem; padding-right: 0; }
+body.rtl .pl-8 { padding-right: 2rem; padding-left: 0; }
+body.rtl .pr-8 { padding-left: 2rem; padding-right: 0; }
+
+/* Flip text alignment */
+body.rtl .text-left { text-align: right; }
+body.rtl .text-right { text-align: left; }
+
+/* Flip flex direction */
+body.rtl .flex-row-reverse { flex-direction: row; }
+body.rtl .flex-row { flex-direction: row-reverse; }
+
+/* Flip float */
+body.rtl .float-left { float: right; }
+body.rtl .float-right { float: left; }
+
+/* Flip border radius */
+body.rtl .rounded-l { border-top-right-radius: 0.25rem; border-bottom-right-radius: 0.25rem; border-top-left-radius: 0; border-bottom-left-radius: 0; }
+body.rtl .rounded-r { border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+
+/* Flip transform for arrows and icons */
+body.rtl .transform-flip {
+  transform: scaleX(-1);
+}
+
+/* Social icons - keep LTR */
+body.rtl .social-links a,
+body.rtl [class*="icon"] {
+  direction: ltr;
+}
+
+/* Code blocks - keep LTR */
+body.rtl pre,
+body.rtl code {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Numbers - keep LTR */
+body.rtl .number,
+body.rtl [class*="stat"],
+body.rtl [class*="count"] {
+  direction: ltr;
+}
+
+/* Animations for RTL */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+body.rtl .slide-in-right {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+body.rtl .slide-in-left {
+  animation: slideInRight 0.5s ease-out;
+}
+
+/* Arabic font optimization */
+body.rtl {
+  font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: normal;
+}
+
+/* Better line height for Arabic */
+body.rtl p,
+body.rtl span,
+body.rtl div {
+  line-height: 1.8;
+}
+
+body.rtl h1,
+body.rtl h2,
+body.rtl h3,
+body.rtl h4,
+body.rtl h5,
+body.rtl h6 {
+  line-height: 1.6;
+}
+
+/* List items RTL */
+body.rtl ul,
+body.rtl ol {
+  padding-right: 1.5rem;
+  padding-left: 0;
+}
+
+body.rtl li {
+  text-align: right;
+}
+
+/* Forms RTL */
+body.rtl input,
+body.rtl textarea,
+body.rtl select {
+  text-align: right;
+}
+
+body.rtl input[type="email"],
+body.rtl input[type="url"],
+body.rtl input[type="tel"] {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Navigation RTL */
+body.rtl nav ul {
+  padding-right: 0;
+}
+
+body.rtl nav li {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+/* Dropdown menus RTL */
+body.rtl .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+/* Tooltips RTL */
+body.rtl .tooltip {
+  text-align: right;
+}
+
+/* Modal RTL */
+body.rtl .modal-header {
+  text-align: right;
+}
+
+body.rtl .modal-footer {
+  flex-direction: row-reverse;
+}
+
+/* Cards RTL */
+body.rtl .card {
+  text-align: right;
+}
+
+/* Badges RTL */
+body.rtl .badge {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+/* Progress bar RTL */
+body.rtl .progress {
+  transform: scaleX(-1);
+}
+
+body.rtl .progress-bar {
+  transform: scaleX(-1);
+}
+
+/* Breadcrumbs RTL */
+body.rtl .breadcrumb {
+  flex-direction: row-reverse;
+}
+
+body.rtl .breadcrumb-item + .breadcrumb-item::before {
+  float: right;
+  padding-left: 0.5rem;
+  padding-right: 0;
+  content: "←";
+}
+
+/* Pagination RTL */
+body.rtl .pagination {
+  flex-direction: row-reverse;
+}
+
+/* Tabs RTL */
+body.rtl .nav-tabs {
+  flex-direction: row-reverse;
+}
+
+/* Alerts RTL */
+body.rtl .alert {
+  text-align: right;
+}
+
+/* Tables RTL */
+body.rtl table {
+  direction: rtl;
+}
+
+body.rtl th,
+body.rtl td {
+  text-align: right;
+}
+
+/* Checkboxes and radios RTL */
+body.rtl .form-check {
+  padding-right: 1.25rem;
+  padding-left: 0;
+}
+
+body.rtl .form-check-input {
+  margin-right: -1.25rem;
+  margin-left: 0;
+}
+
+/* Scrollbar RTL (for webkit browsers) */
+body.rtl ::-webkit-scrollbar {
+  width: 8px;
+}
+
+body.rtl ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body.rtl ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+body.rtl ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

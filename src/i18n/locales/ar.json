@@ -1,0 +1,151 @@
+{
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "retry": "حاول مرة أخرى",
+    "viewMore": "عرض المزيد",
+    "viewLess": "عرض أقل",
+    "download": "تحميل",
+    "contactMe": "تواصل معي",
+    "learnMore": "اعرف المزيد",
+    "readMore": "اقرأ المزيد",
+    "seeAll": "عرض الكل"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "about": "نبذة عني",
+    "projects": "المشاريع",
+    "skills": "المهارات",
+    "experience": "الخبرات",
+    "contact": "تواصل معي",
+    "resume": "السيرة الذاتية"
+  },
+  "hero": {
+    "greeting": "مرحباً، أنا",
+    "title": "مطور فلاتر",
+    "subtitle": "أبني تطبيقات موبايل متعددة المنصات رائعة",
+    "description": "شغوف بإنشاء تطبيقات موبايل عالية الأداء وسهلة الاستخدام مع بنية نظيفة وتصميم حديث.",
+    "cta": {
+      "viewProjects": "شاهد أعمالي",
+      "contactMe": "تواصل معي",
+      "downloadCV": "تحميل السيرة الذاتية"
+    }
+  },
+  "about": {
+    "title": "نبذة عني",
+    "subtitle": "تعرف علي أكثر",
+    "bio": "أنا مطور فلاتر بخبرة {{years}} في بناء تطبيقات الموبايل متعددة المنصات. أتخصص في إنشاء تطبيقات جميلة وعالية الأداء باستخدام أنماط البنية النظيفة وممارسات التطوير الحديثة.",
+    "experience": "الخبرة",
+    "education": "التعليم",
+    "languages": "اللغات",
+    "location": "الموقع",
+    "availability": "التوافر",
+    "availableForWork": "متاح للعمل الحر",
+    "stats": {
+      "projects": "مشروع مكتمل",
+      "experience": "سنوات خبرة",
+      "technologies": "تقنية",
+      "satisfaction": "رضا العملاء"
+    }
+  },
+  "projects": {
+    "title": "مشاريعي",
+    "subtitle": "أعمالي المميزة",
+    "featured": "المشاريع المميزة",
+    "all": "كل المشاريع",
+    "category": "التصنيف",
+    "technologies": "التقنيات",
+    "features": "المميزات الرئيسية",
+    "challenges": "التحديات",
+    "solutions": "الحلول",
+    "learnings": "ما تعلمته",
+    "duration": "المدة",
+    "teamSize": "حجم الفريق",
+    "myRole": "دوري",
+    "responsibilities": "المسؤوليات",
+    "status": {
+      "completed": "مكتمل",
+      "inProgress": "قيد التنفيذ",
+      "planned": "مخطط"
+    },
+    "links": {
+      "demo": "معاينة مباشرة",
+      "github": "عرض الكود",
+      "playstore": "جوجل بلاي",
+      "appstore": "آب ستور"
+    },
+    "viewProject": "عرض تفاصيل المشروع",
+    "noProjects": "لا توجد مشاريع"
+  },
+  "skills": {
+    "title": "المهارات التقنية",
+    "subtitle": "التقنيات التي أعمل بها",
+    "categories": {
+      "mobile": "تطوير الموبايل",
+      "backend": "الواجهة الخلفية والـ APIs",
+      "architecture": "البنية وإدارة الحالة",
+      "design": "تصميم واجهة المستخدم",
+      "tools": "أدوات التطوير"
+    },
+    "level": "مستوى الإتقان",
+    "yearsOfExperience": "{{years}} سنوات خبرة",
+    "usedIn": "مستخدمة في {{count}} مشروع",
+    "usedIn_plural": "مستخدمة في {{count}} مشاريع"
+  },
+  "contact": {
+    "title": "تواصل معي",
+    "subtitle": "لنعمل معاً",
+    "description": "أنا دائماً مهتم بسماع مشاريع وفرص جديدة. لا تتردد في التواصل!",
+    "form": {
+      "name": "اسمك",
+      "email": "بريدك الإلكتروني",
+      "subject": "الموضوع",
+      "message": "الرسالة",
+      "send": "إرسال الرسالة",
+      "sending": "جاري الإرسال...",
+      "success": "تم إرسال الرسالة بنجاح!",
+      "error": "فشل إرسال الرسالة. حاول مرة أخرى."
+    },
+    "info": {
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "location": "الموقع",
+      "availability": "التوافر"
+    },
+    "social": {
+      "title": "تواصل معي",
+      "followMe": "تابعني على وسائل التواصل الاجتماعي"
+    }
+  },
+  "footer": {
+    "rights": "جميع الحقوق محفوظة",
+    "madeWith": "صُنع بـ",
+    "by": "بواسطة",
+    "links": {
+      "privacy": "سياسة الخصوصية",
+      "terms": "شروط الخدمة"
+    }
+  },
+  "errors": {
+    "pageNotFound": "الصفحة غير موجودة",
+    "goHome": "العودة للرئيسية",
+    "somethingWrong": "حدث خطأ ما",
+    "loadingFailed": "فشل تحميل البيانات",
+    "networkError": "خطأ في الشبكة. تحقق من اتصالك."
+  },
+  "achievements": {
+    "title": "الإنجازات",
+    "subtitle": "المعالم والإنجازات",
+    "types": {
+      "education": "تعليم",
+      "project": "مشروع",
+      "certification": "شهادة",
+      "award": "جائزة"
+    }
+  },
+  "language": {
+    "switch": "تغيير اللغة",
+    "english": "الإنجليزية",
+    "arabic": "العربية"
+  }
+}

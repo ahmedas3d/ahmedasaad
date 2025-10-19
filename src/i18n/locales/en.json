@@ -1,0 +1,151 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Try Again",
+    "viewMore": "View More",
+    "viewLess": "View Less",
+    "download": "Download",
+    "contactMe": "Contact Me",
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "seeAll": "See All"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "title": "Flutter Developer",
+    "subtitle": "Building beautiful cross-platform mobile applications",
+    "description": "Passionate about creating high-performance, user-friendly mobile apps with clean architecture and modern design.",
+    "cta": {
+      "viewProjects": "View My Work",
+      "contactMe": "Get In Touch",
+      "downloadCV": "Download CV"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Get to know me better",
+    "bio": "I'm a Flutter Developer with {{years}} of experience in building cross-platform mobile applications. I specialize in creating beautiful, performant apps using clean architecture patterns and modern development practices.",
+    "experience": "Experience",
+    "education": "Education",
+    "languages": "Languages",
+    "location": "Location",
+    "availability": "Availability",
+    "availableForWork": "Available for freelance work",
+    "stats": {
+      "projects": "Projects Completed",
+      "experience": "Years Experience",
+      "technologies": "Technologies",
+      "satisfaction": "Client Satisfaction"
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Featured Work",
+    "featured": "Featured Projects",
+    "all": "All Projects",
+    "category": "Category",
+    "technologies": "Technologies",
+    "features": "Key Features",
+    "challenges": "Challenges",
+    "solutions": "Solutions",
+    "learnings": "What I Learned",
+    "duration": "Duration",
+    "teamSize": "Team Size",
+    "myRole": "My Role",
+    "responsibilities": "Responsibilities",
+    "status": {
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "planned": "Planned"
+    },
+    "links": {
+      "demo": "Live Demo",
+      "github": "View Code",
+      "playstore": "Google Play",
+      "appstore": "App Store"
+    },
+    "viewProject": "View Project Details",
+    "noProjects": "No projects found"
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "Technologies I Work With",
+    "categories": {
+      "mobile": "Mobile Development",
+      "backend": "Backend & APIs",
+      "architecture": "Architecture & State Management",
+      "design": "UI/UX Design",
+      "tools": "Development Tools"
+    },
+    "level": "Proficiency",
+    "yearsOfExperience": "{{years}} years experience",
+    "usedIn": "Used in {{count}} project",
+    "usedIn_plural": "Used in {{count}} projects"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's work together",
+    "description": "I'm always interested in hearing about new projects and opportunities. Feel free to reach out!",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "availability": "Availability"
+    },
+    "social": {
+      "title": "Connect With Me",
+      "followMe": "Follow me on social media"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "madeWith": "Made with",
+    "by": "by",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "errors": {
+    "pageNotFound": "Page Not Found",
+    "goHome": "Go Home",
+    "somethingWrong": "Something went wrong",
+    "loadingFailed": "Failed to load data",
+    "networkError": "Network error. Please check your connection."
+  },
+  "achievements": {
+    "title": "Achievements",
+    "subtitle": "Milestones & Accomplishments",
+    "types": {
+      "education": "Education",
+      "project": "Project",
+      "certification": "Certification",
+      "award": "Award"
+    }
+  },
+  "language": {
+    "switch": "Switch Language",
+    "english": "English",
+    "arabic": "Arabic"
+  }
+}

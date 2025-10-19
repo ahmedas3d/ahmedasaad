@@ -19,6 +19,7 @@ export interface DbProject {
   category_en: string | null;
   category_ar: string | null;
   subcategory_en?: string | null;
+  subcategory_ar?: string | null;
   technologies: string[];
   primary_tech?: string[];
   features?: string[];

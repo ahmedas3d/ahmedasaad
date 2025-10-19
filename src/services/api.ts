@@ -40,7 +40,7 @@ export async function fetchProjects(): Promise<Project[]> {
 
     if (error) throw error;
 
-    const projects = (data || []).map(transformDbProjectToProject);
+    const projects = (data || []).map((dbProject) => transformDbProjectToProject(dbProject));
     setCachedData(cacheKey, projects);
     return projects;
   } catch (error) {
@@ -89,7 +89,7 @@ export async function fetchFeaturedProjects(): Promise<Project[]> {
 
     if (error) throw error;
 
-    const projects = (data || []).map(transformDbProjectToProject);
+    const projects = (data || []).map((dbProject) => transformDbProjectToProject(dbProject));
     setCachedData(cacheKey, projects);
     return projects;
   } catch (error) {
@@ -99,17 +99,29 @@ export async function fetchFeaturedProjects(): Promise<Project[]> {
 }
 
 /**
- * Transform database project to app project format
+ * Get current language from localStorage or default to 'en'
  */
-function transformDbProjectToProject(dbProject: DbProject): Project {
+function getCurrentLanguage(): 'en' | 'ar' {
+  if (typeof window === 'undefined') return 'en';
+  return (localStorage.getItem('i18nextLng') || 'en') as 'en' | 'ar';
+}
+
+/**
+ * Transform database project to app project format
+ * Automatically uses the current language
+ */
+function transformDbProjectToProject(dbProject: DbProject, lang?: 'en' | 'ar'): Project {
+  const currentLang = lang || getCurrentLanguage();
+  const isArabic = currentLang === 'ar';
+
   return {
     id: dbProject.id,
-    title: dbProject.title_en,
-    subtitle: dbProject.subcategory_en || '',
-    description: dbProject.description_en || '',
-    longDescription: dbProject.long_description_en || dbProject.description_en || '',
-    category: dbProject.category_en || '',
-    subcategory: dbProject.subcategory_en || '',
+    title: isArabic && dbProject.title_ar ? dbProject.title_ar : dbProject.title_en,
+    subtitle: isArabic && dbProject.subcategory_ar ? dbProject.subcategory_ar : (dbProject.subcategory_en || ''),
+    description: isArabic && dbProject.description_ar ? dbProject.description_ar : (dbProject.description_en || ''),
+    longDescription: isArabic && dbProject.long_description_ar ? dbProject.long_description_ar : (dbProject.long_description_en || dbProject.description_en || ''),
+    category: isArabic && dbProject.category_ar ? dbProject.category_ar : (dbProject.category_en || ''),
+    subcategory: isArabic && dbProject.subcategory_ar ? dbProject.subcategory_ar : (dbProject.subcategory_en || ''),
     technologies: dbProject.technologies || [],
     primaryTech: dbProject.primary_tech || [],
     features: dbProject.features || [],
@@ -117,8 +129,8 @@ function transformDbProjectToProject(dbProject: DbProject): Project {
     solutions: dbProject.solutions || [],
     learnings: dbProject.learnings || [],
     images: {
-      thumbnail: dbProject.thumbnail_image || dbProject.images[0] || '',
-      hero: dbProject.hero_image || dbProject.images[0] || '',
+      thumbnail: dbProject.thumbnail_image || dbProject.images?.[0] || '',
+      hero: dbProject.hero_image || dbProject.images?.[0] || '',
       gallery: dbProject.images || [],
       screenshots: dbProject.images || [],
     },
@@ -161,7 +173,7 @@ export async function fetchSkills(): Promise<Skill[]> {
 
     if (error) throw error;
 
-    const skills = (data || []).map(transformDbSkillToSkill);
+    const skills = (data || []).map((item) => transformDbSkillToSkill(item));
     setCachedData(cacheKey, skills);
     return skills;
   } catch (error) {
@@ -184,7 +196,7 @@ export async function fetchSkillsByCategory(category: string): Promise<Skill[]> 
 
     if (error) throw error;
 
-    return (data || []).map(transformDbSkillToSkill);
+    return (data || []).map((item) => transformDbSkillToSkill(item));
   } catch (error) {
     console.error('Error fetching skills by category:', error);
     return [];
@@ -193,16 +205,20 @@ export async function fetchSkillsByCategory(category: string): Promise<Skill[]> 
 
 /**
  * Transform database skill to app skill format
+ * Automatically uses the current language
  */
-function transformDbSkillToSkill(dbSkill: DbSkill): Skill {
+function transformDbSkillToSkill(dbSkill: DbSkill, lang?: 'en' | 'ar'): Skill {
+  const currentLang = lang || getCurrentLanguage();
+  const isArabic = currentLang === 'ar';
+
   return {
     id: dbSkill.id,
-    name: dbSkill.name_en,
+    name: isArabic && dbSkill.name_ar ? dbSkill.name_ar : dbSkill.name_en,
     level: dbSkill.proficiency,
     category: mapSkillCategory(dbSkill.category_en || ''),
     icon: dbSkill.icon_name || dbSkill.icon_url || '',
     color: dbSkill.color || '#000000',
-    description: dbSkill.description_en || '',
+    description: isArabic && dbSkill.description_ar ? dbSkill.description_ar : (dbSkill.description_en || ''),
     yearsOfExperience: dbSkill.years_experience,
     projects: dbSkill.projects || [],
     certifications: dbSkill.certifications || [],
@@ -258,13 +274,17 @@ export async function fetchPersonalInfo(): Promise<PersonalInfo | null> {
 
 /**
  * Transform database personal info to app format
+ * Automatically uses the current language
  */
-function transformDbPersonalInfoToPersonalInfo(dbInfo: DbPersonalInfo): PersonalInfo {
+function transformDbPersonalInfoToPersonalInfo(dbInfo: DbPersonalInfo, lang?: 'en' | 'ar'): PersonalInfo {
+  const currentLang = lang || getCurrentLanguage();
+  const isArabic = currentLang === 'ar';
+
   return {
-    name: dbInfo.full_name_en || 'Ahmed Asaad',
-    title: dbInfo.title_en || 'Flutter Developer',
-    shortTitle: dbInfo.short_title_en || 'Flutter Dev',
-    location: dbInfo.location_en || '',
+    name: isArabic && dbInfo.full_name_ar ? dbInfo.full_name_ar : (dbInfo.full_name_en || 'Ahmed Asaad'),
+    title: isArabic && dbInfo.title_ar ? dbInfo.title_ar : (dbInfo.title_en || 'Flutter Developer'),
+    shortTitle: isArabic && dbInfo.short_title_en ? dbInfo.short_title_en : (dbInfo.short_title_en || 'Flutter Dev'),
+    location: isArabic && dbInfo.location_ar ? dbInfo.location_ar : (dbInfo.location_en || ''),
     email: dbInfo.email || '',
     phone: dbInfo.phone || '',
     experience: dbInfo.experience_years || '1+ years',
@@ -276,9 +296,9 @@ function transformDbPersonalInfoToPersonalInfo(dbInfo: DbPersonalInfo): Personal
     },
     languages: dbInfo.languages || [],
     bio: {
-      short: dbInfo.bio_short_en || dbInfo.bio_en || '',
-      long: dbInfo.bio_long_en || dbInfo.bio_en || '',
-      professional: dbInfo.bio_professional_en || dbInfo.bio_en || '',
+      short: isArabic && dbInfo.bio_short_en ? dbInfo.bio_short_en : (dbInfo.bio_short_en || dbInfo.bio_en || ''),
+      long: isArabic && dbInfo.bio_long_en ? dbInfo.bio_long_en : (dbInfo.bio_long_en || dbInfo.bio_en || ''),
+      professional: isArabic && dbInfo.bio_professional_en ? dbInfo.bio_professional_en : (dbInfo.bio_professional_en || dbInfo.bio_en || ''),
     },
     taglines: dbInfo.taglines || [],
     specialties: dbInfo.specialties || [],
@@ -307,7 +327,7 @@ export async function fetchSocialLinks(): Promise<SocialLink[]> {
 
     if (error) throw error;
 
-    const socialLinks = (data || []).map(transformDbSocialLinkToSocialLink);
+    const socialLinks = (data || []).map((item) => transformDbSocialLinkToSocialLink(item));
     setCachedData(cacheKey, socialLinks);
     return socialLinks;
   } catch (error) {
@@ -318,10 +338,14 @@ export async function fetchSocialLinks(): Promise<SocialLink[]> {
 
 /**
  * Transform database social link to app format
+ * Automatically uses the current language
  */
-function transformDbSocialLinkToSocialLink(dbLink: DbSocialLink): SocialLink {
+function transformDbSocialLinkToSocialLink(dbLink: DbSocialLink, lang?: 'en' | 'ar'): SocialLink {
+  const currentLang = lang || getCurrentLanguage();
+  const isArabic = currentLang === 'ar';
+
   return {
-    name: dbLink.name_en,
+    name: isArabic && dbLink.name_ar ? dbLink.name_ar : dbLink.name_en,
     url: dbLink.url,
     icon: dbLink.icon,
     color: dbLink.color || '#000000',
@@ -350,7 +374,7 @@ export async function fetchAchievements(): Promise<Achievement[]> {
 
     if (error) throw error;
 
-    const achievements = (data || []).map(transformDbAchievementToAchievement);
+    const achievements = (data || []).map((item) => transformDbAchievementToAchievement(item));
     setCachedData(cacheKey, achievements);
     return achievements;
   } catch (error) {
@@ -361,11 +385,15 @@ export async function fetchAchievements(): Promise<Achievement[]> {
 
 /**
  * Transform database achievement to app format
+ * Automatically uses the current language
  */
-function transformDbAchievementToAchievement(dbAchievement: DbAchievement): Achievement {
+function transformDbAchievementToAchievement(dbAchievement: DbAchievement, lang?: 'en' | 'ar'): Achievement {
+  const currentLang = lang || getCurrentLanguage();
+  const isArabic = currentLang === 'ar';
+
   return {
-    title: dbAchievement.title_en,
-    description: dbAchievement.description_en || '',
+    title: isArabic && dbAchievement.title_ar ? dbAchievement.title_ar : dbAchievement.title_en,
+    description: isArabic && dbAchievement.description_ar ? dbAchievement.description_ar : (dbAchievement.description_en || ''),
     date: dbAchievement.date,
     type: dbAchievement.type,
   };
