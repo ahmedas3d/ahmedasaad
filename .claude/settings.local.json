@@ -37,7 +37,8 @@
       "Bash(BUILD_PATH=dist npm run build)",
       "Bash(PORT=3001 npm start)",
       "Bash(npm audit:*)",
-      "Bash(set BUILD_PATH=dist)"
+      "Bash(set BUILD_PATH=dist)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []
