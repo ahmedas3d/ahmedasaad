@@ -14,8 +14,10 @@ import {
   FaPlay,
 } from "react-icons/fa";
 import ProjectImage from "../ui/ProjectImage";
+import { useTranslation } from "../../hooks/useTranslation";
 
 const Projects: React.FC = () => {
+  const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState("all");
   const allProjects = getFeaturedProjects();
   const categories = getProjectCategories();
@@ -41,7 +43,7 @@ const Projects: React.FC = () => {
     activeFilter === "all" ? allProjects : getProjectsByCategory(activeFilter);
 
   const filterButtons = [
-    { key: "all", label: "All Projects", icon: <FaCode /> },
+    { key: "all", label: t("projects.filterAll"), icon: <FaCode /> },
     ...categories.map((category) => ({
       key: category,
       label: category,
@@ -68,12 +70,11 @@ const Projects: React.FC = () => {
         >
           <h2 className="text-4xl md:text-5xl font-header font-bold text-light-text dark:text-dark-text mb-4">
             <span className="text-tech-blue">&lt;</span>
-            Featured Projects
+            {t("projects.title")}
             <span className="text-tech-blue">/&gt;</span>
           </h2>
           <p className="text-xl text-light-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto">
-            Explore my mobile applications built with Flutter, showcasing clean
-            architecture and modern development practices
+            {t("projects.subtitle")}
           </p>
 
           {/* Git Command */}
@@ -86,7 +87,7 @@ const Projects: React.FC = () => {
           >
             <div className="flex items-center space-x-2 text-tech-green font-code text-sm">
               <span className="text-tech-blue">$</span>
-              <span>git log --oneline --graph</span>
+              <span>{t("projects.gitCommand")}</span>
               <div className="w-2 h-4 bg-tech-green animate-pulse ml-1"></div>
             </div>
           </motion.div>
@@ -191,7 +192,11 @@ const Projects: React.FC = () => {
                             : "bg-gray-500 text-white"
                         }`}
                       >
-                        {project.status.replace("-", " ")}
+                        {project.status === "completed"
+                          ? t("projects.status.completed")
+                          : project.status === "in-progress"
+                          ? t("projects.status.inProgress")
+                          : t("projects.status.planned")}
                       </span>
                     </div>
 
@@ -241,7 +246,7 @@ const Projects: React.FC = () => {
                             +
                             {project.technologies.length -
                               project.primaryTech.length}{" "}
-                            more
+                            {t("projects.more")}
                           </span>
                         )}
                       </div>
@@ -250,16 +255,20 @@ const Projects: React.FC = () => {
                     {/* Project Stats */}
                     <div className="flex justify-between items-center text-xs font-code text-light-text-muted dark:text-dark-text-muted mb-4">
                       <span>
-                        Team: {project.teamSize} member
-                        {project.teamSize > 1 ? "s" : ""}
+                        {t("projects.team")}: {project.teamSize}{" "}
+                        {project.teamSize > 1
+                          ? t("projects.members")
+                          : t("projects.member")}
                       </span>
-                      <span>Role: {project.myRole}</span>
+                      <span>
+                        {t("projects.role")}: {project.myRole}
+                      </span>
                     </div>
 
                     {/* Key Features */}
                     <div className="mb-4">
                       <h4 className="text-sm font-code font-semibold text-light-text dark:text-dark-text mb-2">
-                        Key Features:
+                        {t("projects.keyFeatures")}:
                       </h4>
                       <ul className="text-xs text-light-text-secondary dark:text-dark-text-secondary space-y-1">
                         {project.features
@@ -282,7 +291,7 @@ const Projects: React.FC = () => {
                         to={`/project/${project.id}`}
                         className="flex-1 btn-primary text-center text-sm py-2"
                       >
-                        <span className="font-code">View Details</span>
+                        <span className="font-code">{t("projects.viewDetails")}</span>
                       </Link>
                       {project.links.github && (
                         <a
@@ -312,11 +321,10 @@ const Projects: React.FC = () => {
         >
           <div className="card p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-header font-bold text-light-text dark:text-dark-text mb-4">
-              Ready to Build Your Next App?
+              {t("projects.ctaTitle")}
             </h3>
             <p className="text-light-text-secondary dark:text-dark-text-secondary mb-6">
-              Let's discuss your mobile app project and bring your ideas to life
-              with Flutter.
+              {t("projects.ctaDescription")}
             </p>
             <motion.button
               onClick={() => {
@@ -327,7 +335,7 @@ const Projects: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="font-code">Start Your Project</span>
+              <span className="font-code">{t("projects.startProject")}</span>
             </motion.button>
           </div>
         </motion.div>

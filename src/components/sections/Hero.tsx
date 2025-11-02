@@ -5,8 +5,11 @@ import { personalInfo, quickStats } from '../../data/personal';
 import { ASSETS } from '../../data/assets';
 import TypingEffect from '../animations/TypingEffect';
 import LazyImage from '../ui/LazyImage';
+import { useTranslation } from '../../hooks/useTranslation';
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -17,11 +20,11 @@ const Hero: React.FC = () => {
   };
 
   const techTitles = [
-    'Flutter Developer',
-    'Mobile App Expert',
-    'Clean Code Advocate',
-    'Firebase Specialist',
-    'Cross-platform Developer'
+    t('hero.titles.flutterDev'),
+    t('hero.titles.mobileExpert'),
+    t('hero.titles.cleanCode'),
+    t('hero.titles.firebaseSpecialist'),
+    t('hero.titles.crossPlatform')
   ];
 
   return (
@@ -109,7 +112,7 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
                 <span className="text-tech-blue">&lt;</span>
-                Hello World!
+                {t('hero.helloWorld')}
                 <span className="text-tech-blue">/&gt;</span>
               </motion.p>
 
@@ -119,7 +122,7 @@ const Hero: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                I'm <span className="text-gradient">{personalInfo.name}</span>
+                {t('hero.greeting')} <span className="text-gradient">{personalInfo.name}</span>
               </motion.h1>
 
               <motion.div
@@ -146,10 +149,9 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.2 }}
             >
-              Passionate about creating high-performance, cross-platform mobile applications
-              with clean architecture and seamless user experiences. Specialized in
+              {t('hero.description')}
               <span className="text-primary-red font-code"> Flutter</span>,
-              <span className="text-tech-blue font-code"> Firebase</span>, and
+              <span className="text-tech-blue font-code"> Firebase</span>, {t('common.and')}
               <span className="text-tech-green font-code"> Clean Architecture</span>.
             </motion.p>
 
@@ -160,21 +162,54 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.4 }}
             >
-              {Object.entries(quickStats).map(([key, value], index) => (
-                <motion.div
-                  key={key}
-                  className="text-center p-3 bg-light-bg-secondary dark:bg-dark-bg-secondary rounded-lg border border-light-border dark:border-dark-border"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="text-2xl font-bold text-primary-red font-header">
-                    {value}
-                  </div>
-                  <div className="text-xs font-code text-light-text-muted dark:text-dark-text-muted capitalize">
-                    {key.replace(/([A-Z])/g, ' $1').toLowerCase()}
-                  </div>
-                </motion.div>
-              ))}
+              <motion.div
+                className="text-center p-3 bg-light-bg-secondary dark:bg-dark-bg-secondary rounded-lg border border-light-border dark:border-dark-border"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="text-2xl font-bold text-primary-red font-header">
+                  {quickStats.projectsCompleted}
+                </div>
+                <div className="text-xs font-code text-light-text-muted dark:text-dark-text-muted">
+                  {t('stats.projectsCompleted')}
+                </div>
+              </motion.div>
+              <motion.div
+                className="text-center p-3 bg-light-bg-secondary dark:bg-dark-bg-secondary rounded-lg border border-light-border dark:border-dark-border"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="text-2xl font-bold text-primary-red font-header">
+                  {quickStats.yearsExperience}
+                </div>
+                <div className="text-xs font-code text-light-text-muted dark:text-dark-text-muted">
+                  {t('stats.yearsExperience')}
+                </div>
+              </motion.div>
+              <motion.div
+                className="text-center p-3 bg-light-bg-secondary dark:bg-dark-bg-secondary rounded-lg border border-light-border dark:border-dark-border"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="text-2xl font-bold text-primary-red font-header">
+                  {quickStats.technologiesMastered}
+                </div>
+                <div className="text-xs font-code text-light-text-muted dark:text-dark-text-muted">
+                  {t('stats.technologiesMastered')}
+                </div>
+              </motion.div>
+              <motion.div
+                className="text-center p-3 bg-light-bg-secondary dark:bg-dark-bg-secondary rounded-lg border border-light-border dark:border-dark-border"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="text-2xl font-bold text-primary-red font-header">
+                  {quickStats.clientSatisfaction}
+                </div>
+                <div className="text-xs font-code text-light-text-muted dark:text-dark-text-muted">
+                  {t('stats.clientSatisfaction')}
+                </div>
+              </motion.div>
             </motion.div>
 
             {/* Action Buttons */}
@@ -191,7 +226,7 @@ const Hero: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <FaEye />
-                <span className="font-code">View My Work</span>
+                <span className="font-code">{t('hero.cta.viewWork')}</span>
               </motion.button>
 
               <motion.a
@@ -202,7 +237,7 @@ const Hero: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <FaDownload />
-                <span className="font-code">Download Resume</span>
+                <span className="font-code">{t('hero.cta.downloadResume')}</span>
               </motion.a>
             </motion.div>
 
@@ -216,13 +251,13 @@ const Hero: React.FC = () => {
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-tech-green rounded-full animate-pulse"></div>
                 <span className="text-light-text-muted dark:text-dark-text-muted font-code">
-                  Available for hire
+                  {t('hero.availability.availableForHire')}
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-tech-blue rounded-full animate-pulse"></div>
                 <span className="text-light-text-muted dark:text-dark-text-muted font-code">
-                  Remote friendly
+                  {t('hero.availability.remoteFriendly')}
                 </span>
               </div>
             </motion.div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { FaPaperPlane, FaUser, FaEnvelope, FaComment, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
+import { useTranslation } from '../../hooks/useTranslation';
 
 interface FormData {
   name: string;
@@ -11,6 +12,7 @@ interface FormData {
 }
 
 const ContactForm: React.FC = () => {
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -87,9 +89,9 @@ const ContactForm: React.FC = () => {
         >
           <FaCheckCircle className="text-tech-green" />
           <div>
-            <h4 className="font-code font-semibold text-tech-green">Message Sent Successfully!</h4>
+            <h4 className="font-code font-semibold text-tech-green">{t('contact.form.success')}</h4>
             <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
-              Thank you for reaching out. I'll get back to you within 24 hours.
+              {t('contact.form.successMessage')}
             </p>
           </div>
         </motion.div>
@@ -104,9 +106,9 @@ const ContactForm: React.FC = () => {
         >
           <FaExclamationTriangle className="text-red-500" />
           <div>
-            <h4 className="font-code font-semibold text-red-500">Message Failed to Send</h4>
+            <h4 className="font-code font-semibold text-red-500">{t('contact.form.error')}</h4>
             <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
-              Something went wrong. Please try again or contact me directly.
+              {t('contact.form.errorMessage')}
             </p>
           </div>
         </motion.div>
@@ -134,7 +136,7 @@ const ContactForm: React.FC = () => {
                 minLength: { value: 2, message: 'Name must be at least 2 characters' }
               })}
               className={`form-input ${errors.name ? 'border-red-500 ring-red-500' : ''}`}
-              placeholder="Enter your full name"
+              placeholder={t('contact.form.name')}
             />
             {errors.name && (
               <motion.p
@@ -168,7 +170,7 @@ const ContactForm: React.FC = () => {
                 }
               })}
               className={`form-input ${errors.email ? 'border-red-500 ring-red-500' : ''}`}
-              placeholder="your.email@example.com"
+              placeholder={t('contact.form.email')}
             />
             {errors.email && (
               <motion.p
@@ -200,7 +202,7 @@ const ContactForm: React.FC = () => {
               minLength: { value: 5, message: 'Subject must be at least 5 characters' }
             })}
             className={`form-input ${errors.subject ? 'border-red-500 ring-red-500' : ''}`}
-            placeholder="What's your project about?"
+            placeholder={t('contact.form.subject')}
           />
           {errors.subject && (
             <motion.p
@@ -231,7 +233,7 @@ const ContactForm: React.FC = () => {
             })}
             className={`form-textarea ${errors.message ? 'border-red-500 ring-red-500' : ''}`}
             rows={6}
-            placeholder="Tell me about your mobile app project. What features do you need? What's your timeline and budget?"
+            placeholder={t('contact.form.message')}
           />
           {errors.message && (
             <motion.p
@@ -303,12 +305,12 @@ const ContactForm: React.FC = () => {
             {isSubmitting ? (
               <>
                 <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                <span className="font-code">Sending...</span>
+                <span className="font-code">{t('contact.form.sending')}</span>
               </>
             ) : (
               <>
                 <FaPaperPlane />
-                <span className="font-code">Send Message</span>
+                <span className="font-code">{t('contact.form.send')}</span>
               </>
             )}
           </motion.button>

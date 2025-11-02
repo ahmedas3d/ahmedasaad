@@ -3,8 +3,10 @@ import { motion } from 'framer-motion';
 import { skillCategories, getTopSkills } from '../../data/skills';
 import { FaMobile, FaServer, FaCode, FaPalette, FaTools, FaProjectDiagram } from 'react-icons/fa';
 import TechIcons from '../ui/TechIcons';
+import { useTranslation } from '../../hooks/useTranslation';
 
 const Skills: React.FC = () => {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState('mobile');
   const topSkills = getTopSkills(8);
 
@@ -43,11 +45,11 @@ const Skills: React.FC = () => {
         >
           <h2 className="text-4xl md:text-5xl font-header font-bold text-light-text dark:text-dark-text mb-4">
             <span className="text-tech-blue">&lt;</span>
-            Tech Stack
+            {t('skills.title')}
             <span className="text-tech-blue">/&gt;</span>
           </h2>
           <p className="text-xl text-light-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto">
-            Technologies and tools I use to build amazing mobile applications
+            {t('skills.subtitle')}
           </p>
 
           {/* Terminal Command */}
@@ -60,7 +62,7 @@ const Skills: React.FC = () => {
           >
             <div className="flex items-center space-x-2 text-tech-green font-code text-sm">
               <span className="text-tech-blue">$</span>
-              <span>flutter doctor --version</span>
+              <span>{t('skills.command')}</span>
               <div className="w-2 h-4 bg-tech-green animate-pulse ml-1"></div>
             </div>
           </motion.div>
@@ -75,7 +77,7 @@ const Skills: React.FC = () => {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-header font-semibold text-light-text dark:text-dark-text mb-8 text-center">
-            Technologies & Tools
+            {t('skills.technologiesTitle')}
           </h3>
           <TechIcons />
         </motion.div>
@@ -89,7 +91,7 @@ const Skills: React.FC = () => {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-header font-semibold text-light-text dark:text-dark-text mb-8 text-center">
-            Core Competencies
+            {t('skills.coreCompetencies')}
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -127,7 +129,10 @@ const Skills: React.FC = () => {
                   </div>
                 </div>
                 <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
-                  {skill.yearsOfExperience} year{skill.yearsOfExperience !== 1 ? 's' : ''} experience
+                  {skill.yearsOfExperience === 1
+                    ? t('skills.yearsExperience', { years: skill.yearsOfExperience })
+                    : t('skills.yearsExperiencePlural', { years: skill.yearsOfExperience })
+                  }
                 </p>
               </motion.div>
             ))}
@@ -142,7 +147,7 @@ const Skills: React.FC = () => {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-header font-semibold text-light-text dark:text-dark-text mb-8 text-center">
-            Detailed Expertise
+            {t('skills.detailedExpertise')}
           </h3>
 
           {/* Category Tabs */}
@@ -150,6 +155,20 @@ const Skills: React.FC = () => {
             {skillCategories.map((category) => {
               const categoryKey = category.name.toLowerCase().split(' ')[0];
               const isActive = activeCategory === categoryKey;
+
+              // Map category keys to translation keys
+              const getCategoryTranslation = (key: string) => {
+                const keyMap: { [key: string]: string } = {
+                  'mobile': 'skills.categories.mobile',
+                  'backend': 'skills.categories.backend',
+                  'architecture': 'skills.categories.architecture',
+                  'ui/ux': 'skills.categories.design',
+                  'design': 'skills.categories.design',
+                  'development': 'skills.categories.tools',
+                  'tools': 'skills.categories.tools'
+                };
+                return keyMap[key] || category.name;
+              };
 
               return (
                 <motion.button
@@ -164,7 +183,7 @@ const Skills: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   {getCategoryIcon(categoryKey)}
-                  <span>{category.name}</span>
+                  <span>{t(getCategoryTranslation(categoryKey))}</span>
                 </motion.button>
               );
             })}
@@ -227,7 +246,10 @@ const Skills: React.FC = () => {
                 {skill.projects.length > 0 && (
                   <div>
                     <p className="text-xs font-code text-light-text-muted dark:text-dark-text-muted mb-2">
-                      Used in {skill.projects.length} project{skill.projects.length !== 1 ? 's' : ''}
+                      {skill.projects.length === 1
+                        ? t('skills.usedIn', { count: skill.projects.length })
+                        : t('skills.usedInPlural', { count: skill.projects.length })
+                      }
                     </p>
                     <div className="flex flex-wrap gap-1">
                       {skill.projects.slice(0, 3).map((projectId) => (
@@ -261,31 +283,31 @@ const Skills: React.FC = () => {
         >
           <div className="card p-8 max-w-4xl mx-auto">
             <h3 className="text-xl font-header font-semibold text-light-text dark:text-dark-text mb-4">
-              Technology Proficiency Summary
+              {t('skills.proficiencySummary')}
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary-red font-code">85+</div>
                 <div className="text-sm font-code text-light-text-muted dark:text-dark-text-muted">
-                  Mobile Development
+                  {t('skills.stats.mobileDev')}
                 </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-tech-blue font-code">75+</div>
                 <div className="text-sm font-code text-light-text-muted dark:text-dark-text-muted">
-                  Backend Services
+                  {t('skills.stats.backendServices')}
                 </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-tech-green font-code">80+</div>
                 <div className="text-sm font-code text-light-text-muted dark:text-dark-text-muted">
-                  Development Tools
+                  {t('skills.stats.devTools')}
                 </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary-red font-code">1+</div>
                 <div className="text-sm font-code text-light-text-muted dark:text-dark-text-muted">
-                  Years Experience
+                  {t('skills.stats.yearsExp')}
                 </div>
               </div>
             </div>

@@ -10,8 +10,10 @@ import {
   FaCode,
 } from "react-icons/fa";
 import { personalInfo, socialLinks } from "../../data/personal";
+import { useTranslation } from "../../hooks/useTranslation";
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const getSocialIcon = (iconName: string) => {
@@ -40,10 +42,10 @@ const Footer: React.FC = () => {
   };
 
   const quickLinks = [
-    { name: "About", section: "about" },
-    { name: "Skills", section: "skills" },
-    { name: "Projects", section: "projects" },
-    { name: "Contact", section: "contact" },
+    { name: t('nav.about'), section: "about" },
+    { name: t('nav.skills'), section: "skills" },
+    { name: t('nav.projects'), section: "projects" },
+    { name: t('nav.contact'), section: "contact" },
   ];
 
   const techStack = [
@@ -150,7 +152,7 @@ const Footer: React.FC = () => {
             >
               <h4 className="text-lg font-header font-semibold text-light-text dark:text-dark-text mb-4">
                 <span className="text-tech-blue">&lt;</span>
-                Navigation
+                {t('footer.quickLinks')}
                 <span className="text-tech-blue">/&gt;</span>
               </h4>
               <ul className="space-y-2">
@@ -177,7 +179,7 @@ const Footer: React.FC = () => {
             >
               <h4 className="text-lg font-header font-semibold text-light-text dark:text-dark-text mb-4">
                 <span className="text-tech-blue">&lt;</span>
-                Contact
+                {t('footer.connect')}
                 <span className="text-tech-blue">/&gt;</span>
               </h4>
               <div className="space-y-3">

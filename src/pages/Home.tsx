@@ -8,8 +8,10 @@ import TechParticles from '../components/animations/TechParticles';
 import FloatingCode from '../components/animations/FloatingCode';
 import ScrollIndicator from '../components/animations/ScrollIndicator';
 import { personalInfo } from '../data/personal';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Home: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -42,11 +44,11 @@ const Home: React.FC = () => {
           >
             <h2 className="text-4xl md:text-5xl font-header font-bold text-light-text dark:text-dark-text mb-4">
               <span className="text-tech-blue">&lt;</span>
-              About Me
+              {t('about.title')}
               <span className="text-tech-blue">/&gt;</span>
             </h2>
             <p className="text-xl text-light-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto">
-              Passionate Flutter developer creating cross-platform mobile experiences
+              {t('about.subtitle')}
             </p>
           </motion.div>
 
@@ -59,25 +61,23 @@ const Home: React.FC = () => {
             >
               <div className="card p-8">
                 <h3 className="text-2xl font-header font-semibold text-light-text dark:text-dark-text mb-6">
-                  My Developer Journey
+                  {t('about.journeyTitle')}
                 </h3>
                 <div className="space-y-4 text-light-text-secondary dark:text-dark-text-secondary">
                   <p>
-                    {personalInfo.bio.long}
+                    {t('about.bio', { years: personalInfo.experience })}
                   </p>
                   <p>
-                    With {personalInfo.experience} of hands-on experience, I've successfully delivered mobile applications
-                    across various domains including sports, e-commerce, news, and social platforms.
+                    {t('about.experienceDesc')}
                   </p>
                   <p>
-                    My approach focuses on clean architecture, maintainable code, and delivering exceptional user experiences
-                    that make a real difference in people's lives.
+                    {t('about.approach')}
                   </p>
                 </div>
 
                 <div className="mt-6">
                   <h4 className="font-header font-semibold text-light-text dark:text-dark-text mb-3">
-                    What I Believe In:
+                    {t('about.beliefTitle')}
                   </h4>
                   <ul className="space-y-2">
                     {personalInfo.taglines.map((tagline, index) => (
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
             >
               <div className="card p-8">
                 <h3 className="text-2xl font-header font-semibold text-light-text dark:text-dark-text mb-6">
-                  Education & Background
+                  {t('about.education')}
                 </h3>
 
                 <div className="mb-6">
@@ -115,7 +115,7 @@ const Home: React.FC = () => {
                         {personalInfo.education.field}
                       </p>
                       <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
-                        {personalInfo.education.duration} • Grade: {personalInfo.education.grade}
+                        {personalInfo.education.duration} • {t('about.grade')}: {personalInfo.education.grade}
                       </p>
                     </div>
                   </div>
@@ -123,7 +123,7 @@ const Home: React.FC = () => {
 
                 <div className="mb-6">
                   <h4 className="font-header font-semibold text-light-text dark:text-dark-text mb-3">
-                    Languages
+                    {t('about.languages')}
                   </h4>
                   <div className="space-y-2">
                     {personalInfo.languages.map((lang, index) => (
@@ -141,7 +141,7 @@ const Home: React.FC = () => {
 
                 <div>
                   <h4 className="font-header font-semibold text-light-text dark:text-dark-text mb-3">
-                    Location & Availability
+                    {t('about.location')}
                   </h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex items-center space-x-2">
@@ -153,7 +153,7 @@ const Home: React.FC = () => {
                     <div className="flex items-center space-x-2">
                       <span className="w-2 h-2 bg-tech-green rounded-full animate-pulse"></span>
                       <span className="text-light-text-secondary dark:text-dark-text-secondary">
-                        Available for remote work
+                        {t('about.availableRemote')}
                       </span>
                     </div>
                   </div>
@@ -182,11 +182,11 @@ const Home: React.FC = () => {
           >
             <h2 className="text-4xl md:text-5xl font-header font-bold text-light-text dark:text-dark-text mb-4">
               <span className="text-tech-blue">&lt;</span>
-              Get In Touch
+              {t('contact.title')}
               <span className="text-tech-blue">/&gt;</span>
             </h2>
             <p className="text-xl text-light-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto">
-              Ready to build your next mobile app? Let's discuss your project and bring your ideas to life.
+              {t('contact.subtitle')}
             </p>
           </motion.div>
 

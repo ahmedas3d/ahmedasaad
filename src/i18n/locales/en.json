@@ -9,7 +9,8 @@
     "contactMe": "Contact Me",
     "learnMore": "Learn More",
     "readMore": "Read More",
-    "seeAll": "See All"
+    "seeAll": "See All",
+    "and": "and"
   },
   "nav": {
     "home": "Home",
@@ -21,52 +22,69 @@
     "resume": "Resume"
   },
   "hero": {
-    "greeting": "Hi, I'm",
+    "helloWorld": "Hello World!",
+    "greeting": "I'm",
     "title": "Flutter Developer",
-    "subtitle": "Building beautiful cross-platform mobile applications",
-    "description": "Passionate about creating high-performance, user-friendly mobile apps with clean architecture and modern design.",
+    "titles": {
+      "flutterDev": "Flutter Developer",
+      "mobileExpert": "Mobile App Expert",
+      "cleanCode": "Clean Code Advocate",
+      "firebaseSpecialist": "Firebase Specialist",
+      "crossPlatform": "Cross-platform Developer"
+    },
+    "description": "Passionate about creating high-performance, cross-platform mobile applications with clean architecture and seamless user experiences. Specialized in",
     "cta": {
-      "viewProjects": "View My Work",
-      "contactMe": "Get In Touch",
-      "downloadCV": "Download CV"
+      "viewWork": "View My Work",
+      "downloadResume": "Download Resume",
+      "contactMe": "Get In Touch"
+    },
+    "availability": {
+      "availableForHire": "Available for hire",
+      "remoteFriendly": "Remote friendly"
     }
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Get to know me better",
-    "bio": "I'm a Flutter Developer with {{years}} of experience in building cross-platform mobile applications. I specialize in creating beautiful, performant apps using clean architecture patterns and modern development practices.",
-    "experience": "Experience",
-    "education": "Education",
+    "subtitle": "Passionate Flutter developer creating cross-platform mobile experiences",
+    "journeyTitle": "My Developer Journey",
+    "bio": "Professional Flutter Developer with {{years}} of experience specializing in cross-platform mobile app development. Expert in Dart, Firebase, and clean architecture patterns. Dedicated to writing maintainable code and creating exceptional user experiences.",
+    "experience": "{{years}} of hands-on experience",
+    "experienceDesc": "I've successfully delivered mobile applications across various domains including sports, e-commerce, news, and social platforms.",
+    "approach": "My approach focuses on clean architecture, maintainable code, and delivering exceptional user experiences that make a real difference in people's lives.",
+    "beliefTitle": "What I Believe In:",
+    "education": "Education & Background",
     "languages": "Languages",
-    "location": "Location",
-    "availability": "Availability",
-    "availableForWork": "Available for freelance work",
-    "stats": {
-      "projects": "Projects Completed",
-      "experience": "Years Experience",
-      "technologies": "Technologies",
-      "satisfaction": "Client Satisfaction"
-    }
+    "location": "Location & Availability",
+    "availableRemote": "Available for remote work",
+    "grade": "Grade"
   },
   "projects": {
-    "title": "My Projects",
-    "subtitle": "Featured Work",
+    "title": "Featured Projects",
+    "subtitle": "Explore my mobile applications built with Flutter, showcasing clean architecture and modern development practices",
+    "gitCommand": "git log --oneline --graph",
+    "filterAll": "All Projects",
     "featured": "Featured Projects",
     "all": "All Projects",
     "category": "Category",
     "technologies": "Technologies",
     "features": "Key Features",
+    "keyFeatures": "Key Features:",
     "challenges": "Challenges",
     "solutions": "Solutions",
     "learnings": "What I Learned",
     "duration": "Duration",
     "teamSize": "Team Size",
+    "team": "Team",
+    "member": "member",
+    "members": "members",
+    "role": "Role",
     "myRole": "My Role",
     "responsibilities": "Responsibilities",
+    "more": "more",
     "status": {
-      "completed": "Completed",
-      "inProgress": "In Progress",
-      "planned": "Planned"
+      "completed": "completed",
+      "inProgress": "in progress",
+      "planned": "planned"
     },
     "links": {
       "demo": "Live Demo",
@@ -74,27 +92,43 @@
       "playstore": "Google Play",
       "appstore": "App Store"
     },
-    "viewProject": "View Project Details",
-    "noProjects": "No projects found"
+    "viewDetails": "View Details",
+    "noProjects": "No projects found",
+    "ctaTitle": "Ready to Build Your Next App?",
+    "ctaDescription": "Let's discuss your mobile app project and bring your ideas to life with Flutter.",
+    "startProject": "Start Your Project"
   },
   "skills": {
-    "title": "Technical Skills",
-    "subtitle": "Technologies I Work With",
+    "title": "Tech Stack",
+    "subtitle": "Technologies and tools I use to build amazing mobile applications",
+    "command": "flutter doctor --version",
+    "technologiesTitle": "Technologies & Tools",
+    "coreCompetencies": "Core Competencies",
+    "detailedExpertise": "Detailed Expertise",
+    "proficiencySummary": "Technology Proficiency Summary",
     "categories": {
       "mobile": "Mobile Development",
       "backend": "Backend & APIs",
       "architecture": "Architecture & State Management",
       "design": "UI/UX Design",
-      "tools": "Development Tools"
+      "tools": "Development Tools",
+      "frontend": "Frontend Development"
     },
     "level": "Proficiency",
-    "yearsOfExperience": "{{years}} years experience",
+    "yearsExperience": "{{years}} year experience",
+    "yearsExperiencePlural": "{{years}} years experience",
     "usedIn": "Used in {{count}} project",
-    "usedIn_plural": "Used in {{count}} projects"
+    "usedInPlural": "Used in {{count}} projects",
+    "stats": {
+      "mobileDev": "Mobile Development",
+      "backendServices": "Backend Services",
+      "devTools": "Development Tools",
+      "yearsExp": "Years Experience"
+    }
   },
   "contact": {
     "title": "Get In Touch",
-    "subtitle": "Let's work together",
+    "subtitle": "Ready to build your next mobile app? Let's discuss your project and bring your ideas to life.",
     "description": "I'm always interested in hearing about new projects and opportunities. Feel free to reach out!",
     "form": {
       "name": "Your Name",
@@ -103,8 +137,12 @@
       "message": "Message",
       "send": "Send Message",
       "sending": "Sending...",
-      "success": "Message sent successfully!",
-      "error": "Failed to send message. Please try again."
+      "success": "Message Sent Successfully!",
+      "successMessage": "Thank you for reaching out. I'll get back to you within 24 hours.",
+      "error": "Message Failed to Send",
+      "errorMessage": "Something went wrong. Please try again or contact me directly.",
+      "required": "This field is required",
+      "invalidEmail": "Invalid email address"
     },
     "info": {
       "email": "Email",
@@ -121,10 +159,17 @@
     "rights": "All rights reserved",
     "madeWith": "Made with",
     "by": "by",
+    "in": "in",
     "links": {
       "privacy": "Privacy Policy",
-      "terms": "Terms of Service"
-    }
+      "terms": "Terms of Service",
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "quickLinks": "Quick Links",
+    "connect": "Connect"
   },
   "errors": {
     "pageNotFound": "Page Not Found",
@@ -147,5 +192,11 @@
     "switch": "Switch Language",
     "english": "English",
     "arabic": "Arabic"
+  },
+  "stats": {
+    "projectsCompleted": "Projects Completed",
+    "yearsExperience": "Years Experience",
+    "technologiesMastered": "Technologies Mastered",
+    "clientSatisfaction": "Client Satisfaction"
   }
 }
