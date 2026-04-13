@@ -17,7 +17,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   loading = 'lazy',
   width,
   height,
-  fallback = '/assets/images/placeholder.jpg'
+  fallback = `${process.env.PUBLIC_URL}/assets/images/placeholder.jpg`
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);

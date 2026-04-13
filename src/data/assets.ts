@@ -1,23 +1,27 @@
 // Asset constants for Ahmed Asaad's Portfolio
+
+// Helper to get the correct base path for assets
+const BASE_URL = process.env.PUBLIC_URL || '';
+
 export const ASSETS = {
   // Profile Images
   profile: {
-    main: '/assets/images/profile/ahmed-profile-main.jpg',
-    casual: '/assets/images/profile/ahmed-profile-casual.jpg',
-    avatar: '/assets/images/profile/ahmed-avatar.png',
+    main: `${BASE_URL}/assets/images/profile/ahmed-profile-main.jpg`,
+    casual: `${BASE_URL}/assets/images/profile/ahmed-profile-casual.jpg`,
+    avatar: `${BASE_URL}/assets/images/profile/ahmed-avatar.png`,
   },
 
   // Resume
-  resume: '/assets/resume/Ahmed_Asaad_CV.pdf',
+  resume: `${BASE_URL}/assets/resume/Ahmed_Asaad_CV.pdf`,
 
   // Tech Icons
   techIcons: {
-    flutter: '/assets/images/tech-icons/flutter-icon.svg',
-    dart: '/assets/images/tech-icons/dart-icon.svg',
-    firebase: '/assets/images/tech-icons/firebase-icon.svg',
-    git: '/assets/images/tech-icons/git-icon.svg',
-    github: '/assets/images/tech-icons/github-icon.svg',
-    figma: '/assets/images/tech-icons/figma-icon.svg',
+    flutter: `${BASE_URL}/assets/images/tech-icons/flutter-icon.svg`,
+    dart: `${BASE_URL}/assets/images/tech-icons/dart-icon.svg`,
+    firebase: `${BASE_URL}/assets/images/tech-icons/firebase-icon.svg`,
+    git: `${BASE_URL}/assets/images/tech-icons/git-icon.svg`,
+    github: `${BASE_URL}/assets/images/tech-icons/github-icon.svg`,
+    figma: `${BASE_URL}/assets/images/tech-icons/figma-icon.svg`,
   },
 
   // Project Images (using placeholder gradients for now since no project images found)
@@ -55,7 +59,7 @@ export const ASSETS = {
 
   // Placeholder images for missing assets
   placeholders: {
-    profile: '/assets/images/profile/ahmed-avatar.png', // Fallback to avatar
+    profile: `${BASE_URL}/assets/images/profile/ahmed-avatar.png`, // Fallback to avatar
     project: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik0yMDAgMTUwSDE2MEwxODAgMTMwVjE3MEwyMDAgMTUwWiIgZmlsbD0iI0NDQ0NDQyIvPgo8L3N2Zz4K'
   }
 };

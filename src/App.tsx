@@ -27,7 +27,7 @@ const App: React.FC = () => {
     // Preload critical assets after loading completes
     const preloadLink = document.createElement('link');
     preloadLink.rel = 'preload';
-    preloadLink.href = '/assets/images/profile/ahmed-profile-main.jpg';
+    preloadLink.href = `${process.env.PUBLIC_URL}/assets/images/profile/ahmed-profile-main.jpg`;
     preloadLink.as = 'image';
     document.head.appendChild(preloadLink);
   };

@@ -42,7 +42,7 @@ export const TechIcons: React.FC<TechIconsProps> = ({
           >
             <div className="w-16 h-16 mb-3 flex items-center justify-center">
               <img
-                src={`/assets/images/tech-icons/${icon.file}`}
+                src={`${process.env.PUBLIC_URL}/assets/images/tech-icons/${icon.file}`}
                 alt={icon.displayName}
                 className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
                 onError={(e) => {

@@ -1,4 +1,6 @@
-// Removed unused imports - ASSETS and getProjectPlaceholder not currently used
+// Helper to get the correct base path for assets
+const BASE_URL = process.env.PUBLIC_URL || '';
+
 
 export interface Project {
   id: string;
@@ -134,17 +136,17 @@ export const projectsData: Project[] = [
       },
     ],
     images: {
-      thumbnail: "/assets/images/projects/sportify/thumbnail.jpg",
-      hero: "/assets/images/projects/sportify/hero.jpg",
+      thumbnail: `${BASE_URL}/assets/images/projects/sportify/thumbnail.jpg`,
+      hero: `${BASE_URL}/assets/images/projects/sportify/hero.jpg`,
       gallery: [
-        "/assets/images/projects/sportify/home-screen.jpg",
-        "/assets/images/projects/sportify/matches.jpg",
-        "/assets/images/projects/sportify/leagues.jpg",
-        "/assets/images/projects/sportify/news.jpg",
+        `${BASE_URL}/assets/images/projects/sportify/home-screen.jpg`,
+        `${BASE_URL}/assets/images/projects/sportify/matches.jpg`,
+        `${BASE_URL}/assets/images/projects/sportify/leagues.jpg`,
+        `${BASE_URL}/assets/images/projects/sportify/news.jpg`,
       ],
       screenshots: [
-        "/assets/images/projects/sportify/screenshot1.jpg",
-        "/assets/images/projects/sportify/screenshot2.jpg",
+        `${BASE_URL}/assets/images/projects/sportify/screenshot1.jpg`,
+        `${BASE_URL}/assets/images/projects/sportify/screenshot2.jpg`,
       ],
     },
     links: {
@@ -225,13 +227,13 @@ export const projectsData: Project[] = [
       "Complex state management",
     ],
     images: {
-      thumbnail: "/assets/images/projects/home-food/thumbnail.jpg",
-      hero: "/assets/images/projects/home-food/hero.jpg",
+      thumbnail: `${BASE_URL}/assets/images/projects/home-food/thumbnail.jpg`,
+      hero: `${BASE_URL}/assets/images/projects/home-food/hero.jpg`,
       gallery: [
-        "/assets/images/projects/home-food/dashboard.jpg",
-        "/assets/images/projects/home-food/chef-profile.jpg",
-        "/assets/images/projects/home-food/orders.jpg",
-        "/assets/images/projects/home-food/tracking.jpg",
+        `${BASE_URL}/assets/images/projects/home-food/dashboard.jpg`,
+        `${BASE_URL}/assets/images/projects/home-food/chef-profile.jpg`,
+        `${BASE_URL}/assets/images/projects/home-food/orders.jpg`,
+        `${BASE_URL}/assets/images/projects/home-food/tracking.jpg`,
       ],
     },
     links: {
@@ -350,13 +352,13 @@ class NewsRepositoryImpl implements NewsRepository {
       },
     ],
     images: {
-      thumbnail: "/assets/images/projects/news-hub/thumbnail.jpg",
-      hero: "/assets/images/projects/news-hub/hero.jpg",
+      thumbnail: `${BASE_URL}/assets/images/projects/news-hub/thumbnail.jpg`,
+      hero: `${BASE_URL}/assets/images/projects/news-hub/hero.jpg`,
       gallery: [
-        "/assets/images/projects/news-hub/categories.jpg",
-        "/assets/images/projects/news-hub/article.jpg",
-        "/assets/images/projects/news-hub/search.jpg",
-        "/assets/images/projects/news-hub/bookmarks.jpg",
+        `${BASE_URL}/assets/images/projects/news-hub/categories.jpg`,
+        `${BASE_URL}/assets/images/projects/news-hub/article.jpg`,
+        `${BASE_URL}/assets/images/projects/news-hub/search.jpg`,
+        `${BASE_URL}/assets/images/projects/news-hub/bookmarks.jpg`,
       ],
     },
     links: {
@@ -430,13 +432,13 @@ class NewsRepositoryImpl implements NewsRepository {
       "Performance optimization for lists",
     ],
     images: {
-      thumbnail: "/assets/images/projects/scholar-chat/thumbnail.jpg",
-      hero: "/assets/images/projects/scholar-chat/hero.jpg",
+      thumbnail: `${BASE_URL}/assets/images/projects/scholar-chat/thumbnail.jpg`,
+      hero: `${BASE_URL}/assets/images/projects/scholar-chat/hero.jpg`,
       gallery: [
-        "/assets/images/projects/scholar-chat/chat-list.jpg",
-        "/assets/images/projects/scholar-chat/conversation.jpg",
-        "/assets/images/projects/scholar-chat/group-chat.jpg",
-        "/assets/images/projects/scholar-chat/profile.jpg",
+        `${BASE_URL}/assets/images/projects/scholar-chat/chat-list.jpg`,
+        `${BASE_URL}/assets/images/projects/scholar-chat/conversation.jpg`,
+        `${BASE_URL}/assets/images/projects/scholar-chat/group-chat.jpg`,
+        `${BASE_URL}/assets/images/projects/scholar-chat/profile.jpg`,
       ],
     },
     links: {
@@ -510,13 +512,13 @@ class NewsRepositoryImpl implements NewsRepository {
       "E-commerce UI/UX patterns",
     ],
     images: {
-      thumbnail: "/assets/images/projects/flowery/thumbnail.jpg",
-      hero: "/assets/images/projects/flowery/hero.jpg",
+      thumbnail: `${BASE_URL}/assets/images/projects/flowery/thumbnail.jpg`,
+      hero: `${BASE_URL}/assets/images/projects/flowery/hero.jpg`,
       gallery: [
-        "/assets/images/projects/flowery/catalog.jpg",
-        "/assets/images/projects/flowery/product-detail.jpg",
-        "/assets/images/projects/flowery/cart.jpg",
-        "/assets/images/projects/flowery/checkout.jpg",
+        `${BASE_URL}/assets/images/projects/flowery/catalog.jpg`,
+        `${BASE_URL}/assets/images/projects/flowery/product-detail.jpg`,
+        `${BASE_URL}/assets/images/projects/flowery/cart.jpg`,
+        `${BASE_URL}/assets/images/projects/flowery/checkout.jpg`,
       ],
     },
     links: {

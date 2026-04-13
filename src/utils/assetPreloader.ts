@@ -1,12 +1,15 @@
 // Asset Preloader for Critical Resources
+
+const BASE_URL = process.env.PUBLIC_URL || '';
+
 export const preloadCriticalAssets = (): Promise<void[]> => {
   const criticalAssets = [
-    '/assets/images/profile/ahmed-profile-main.jpg',
-    '/assets/images/profile/ahmed-avatar.png',
-    '/assets/resume/Ahmed_Asaad_CV.pdf',
-    '/assets/images/tech-icons/flutter-icon.svg',
-    '/assets/images/tech-icons/dart-icon.svg',
-    '/assets/images/tech-icons/firebase-icon.svg'
+    `${BASE_URL}/assets/images/profile/ahmed-profile-main.jpg`,
+    `${BASE_URL}/assets/images/profile/ahmed-avatar.png`,
+    `${BASE_URL}/assets/resume/Ahmed_Asaad_CV.pdf`,
+    `${BASE_URL}/assets/images/tech-icons/flutter-icon.svg`,
+    `${BASE_URL}/assets/images/tech-icons/dart-icon.svg`,
+    `${BASE_URL}/assets/images/tech-icons/firebase-icon.svg`
   ];
 
   return Promise.all(
