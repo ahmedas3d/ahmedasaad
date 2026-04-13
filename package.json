@@ -2,6 +2,7 @@
   "name": "ahmed-asaad-portfolio",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://ahmedas3d.github.io/ahmedasaad",
   "description": "Ahmed Asaad - Professional Flutter Developer Portfolio with Tech-Focused Design",
   "keywords": [
     "flutter",
@@ -13,7 +14,6 @@
   ],
   "author": "Ahmed Asaad <ahmedxasaad@gmail.com>",
   "dependencies": {
-    "@supabase/supabase-js": "^2.75.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -25,7 +25,6 @@
     "framer-motion": "^10.16.4",
     "i18next": "^25.6.0",
     "i18next-browser-languagedetector": "^8.2.0",
-    "ipaddr.js": "^2.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.1",
@@ -42,6 +41,7 @@
     "@tailwindcss/typography": "^0.5.8",
     "@types/react-syntax-highlighter": "^15.5.6",
     "autoprefixer": "^10.4.13",
+    "gh-pages": "^6.1.1",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"
   },
@@ -52,8 +52,8 @@
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "analyze": "npm run build && npx serve -s build",
-    "deploy": "npm run build && npm run deploy:netlify",
-    "deploy:netlify": "netlify deploy --prod --dir=build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
