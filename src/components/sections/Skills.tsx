@@ -1,9 +1,43 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { skillCategories, getTopSkills } from '../../data/skills';
-import { FaMobile, FaServer, FaCode, FaPalette, FaTools, FaProjectDiagram } from 'react-icons/fa';
+import {
+  FaMobile, FaServer, FaCode, FaPalette, FaTools, FaProjectDiagram,
+  FaCloud, FaNetworkWired, FaGitAlt
+} from 'react-icons/fa';
+import {
+  SiFlutter, SiDart, SiFirebase, SiSqlite, SiMaterialdesign, SiFigma,
+  SiVisualstudiocode, SiAndroidstudio, SiGooglemaps, SiStripe
+} from 'react-icons/si';
 import TechIcons from '../ui/TechIcons';
 import { useTranslation } from '../../hooks/useTranslation';
+
+// Map icon string names to actual React icon components
+const iconMap: { [key: string]: React.ReactNode } = {
+  SiFlutter: <SiFlutter />,
+  SiDart: <SiDart />,
+  SiFirebase: <SiFirebase />,
+  SiSqlite: <SiSqlite />,
+  SiMaterialdesign: <SiMaterialdesign />,
+  SiFigma: <SiFigma />,
+  SiVisualstudiocode: <SiVisualstudiocode />,
+  SiAndroidstudio: <SiAndroidstudio />,
+  SiGooglemaps: <SiGooglemaps />,
+  SiStripe: <SiStripe />,
+  FaMobile: <FaMobile />,
+  FaServer: <FaServer />,
+  FaCode: <FaCode />,
+  FaPalette: <FaPalette />,
+  FaTools: <FaTools />,
+  FaProjectDiagram: <FaProjectDiagram />,
+  FaCloud: <FaCloud />,
+  FaNetworkWired: <FaNetworkWired />,
+  FaGitAlt: <FaGitAlt />,
+};
+
+const getSkillIcon = (iconName: string, fallbackLetter: string) => {
+  return iconMap[iconName] || <span>{fallbackLetter}</span>;
+};
 
 const Skills: React.FC = () => {
   const { t } = useTranslation();
@@ -106,10 +140,10 @@ const Skills: React.FC = () => {
                 whileHover={{ y: -5 }}
               >
                 <div
-                  className="w-16 h-16 mx-auto mb-4 rounded-lg flex items-center justify-center text-2xl font-bold text-white transition-all duration-300"
+                  className="w-16 h-16 mx-auto mb-4 rounded-lg flex items-center justify-center text-2xl text-white transition-all duration-300"
                   style={{ backgroundColor: skill.color }}
                 >
-                  {skill.name.charAt(0)}
+                  {getSkillIcon(skill.icon, skill.name.charAt(0))}
                 </div>
                 <h4 className="text-lg font-header font-semibold text-light-text dark:text-dark-text mb-2">
                   {skill.name}
